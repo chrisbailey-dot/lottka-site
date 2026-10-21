@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lottka · CRM and business development for recruitment agencies</title>
+  <meta name="description" content="Run several fully separate recruitment desks, each with its own inbox, data and compliance, from one login and one subscription, with business development built in.">
+  <meta name="theme-color" content="#13202e">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face { font-family: "Inter"; font-weight: 100 900; font-display: swap; src: url("fonts/inter-latin.woff2") format("woff2"); }
+    @font-face { font-family: "Sora"; font-weight: 100 800; font-display: swap; src: url("fonts/sora-latin.woff2") format("woff2"); }
+    :root {
+      --navy: #13202e; --navy-2: #1b2b3d; --amber: #e2a33a; --amber-ink: #8a5a10; --slate: #3c4a5a;
+      --mist: #c9d3dd; --cream: #f5f2ec; --page: #f7f5f0; --line: #e1ddd3; --muted: #4a5868;
+      --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --display: "Sora", var(--font);
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--page); color: var(--navy); font: 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+    .wrap { width: min(1120px, 100%); margin: 0 auto; padding: 0 24px; }
+    h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.03em; line-height: 1.1; text-wrap: balance; }
+
+    /* Brand */
+    .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo svg { width: 46px; height: auto; overflow: visible; }
+    .wordmark { font-family: var(--display); font-weight: 700; font-size: 25px; letter-spacing: -0.035em; line-height: 1; }
+    .bird { stroke-width: 0.6; stroke-linejoin: round; }
+    .lead { fill: var(--amber); stroke: var(--amber); }
+    .mid { fill: var(--cream); stroke: var(--cream); }
+    .rear { fill: var(--mist); stroke: var(--mist); }
+
+    /* Buttons */
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 26px; border-radius: 14px; font: 600 17px/1 var(--font); text-decoration: none; white-space: nowrap; transition: transform .12s ease, background .12s ease; }
+    .button:active { transform: scale(.98); }
+    .button-amber { background: var(--amber); color: var(--navy); box-shadow: 0 8px 24px -10px rgb(226 163 58 / 70%); }
+    .button-amber:hover { background: #ebb354; }
+    .button-ghost { color: var(--cream); box-shadow: inset 0 0 0 1.5px rgb(245 242 236 / 35%); }
+    .button-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--cream); }
+    .button-navy { background: var(--navy); color: #fff; }
+    .button-navy:hover { background: var(--navy-2); }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; color: var(--cream);
+      background: radial-gradient(60% 70% at 85% 10%, rgb(226 163 58 / 16%), transparent 70%), var(--navy); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; }
+    .nav .button { min-height: 44px; padding: 0 18px; font-size: 15px; }
+    .hero-body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; padding: 56px 0 96px; }
+    .eyebrow { display: inline-block; margin: 0 0 18px; padding: 6px 12px; border-radius: 999px; background: rgb(226 163 58 / 14%); color: #f0c77e; font-size: 14px; font-weight: 600; }
+    .hero h1 { font-size: clamp(38px, 5.6vw, 62px); font-weight: 700; }
+    .hero h1 em { font-style: normal; color: var(--amber); }
+    .lede { margin: 22px 0 32px; max-width: 34rem; font-size: 19px; color: var(--mist); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .flock { width: 100%; max-width: 420px; justify-self: center; overflow: visible; }
+
+    /* Sections */
+    section { padding: 96px 0; }
+    .section-head { max-width: 40rem; margin-bottom: 48px; }
+    .section-head h2 { font-size: clamp(30px, 3.6vw, 42px); font-weight: 650; }
+    .section-head p { margin: 16px 0 0; color: var(--muted); font-size: 18px; }
+    .kicker { margin: 0 0 12px; color: var(--amber-ink); font-weight: 600; font-size: 15px; }
+
+    .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .feature { padding: 28px; border-radius: 20px; background: #fff; box-shadow: 0 0 0 1px rgb(19 32 46 / 7%), 0 6px 20px -12px rgb(19 32 46 / 18%); }
+    .feature h3 { font-size: 20px; font-weight: 650; margin-bottom: 10px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 16px; }
+    .icon { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-bottom: 18px; border-radius: 13px; background: var(--cream); color: var(--navy); }
+    .icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+    .band { background: var(--cream); }
+    .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+    .checks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; }
+    .checks li::before { content: ""; width: 22px; height: 22px; margin-top: 3px; border-radius: 50%;
+      background: var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e2a33a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }
+    .checks strong { display: block; }
+    .checks span { color: var(--muted); }
+    .desks { display: grid; gap: 12px; }
+    .desk { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 16px; background: #fff; box-shadow: 0 0 0 1px rgb(19 32 46 / 7%); }
+    .desk-mark { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; color: #fff; font-weight: 700; }
+    .desk-name { font-weight: 600; }
+    .desk-meta { display: block; color: var(--muted); font-size: 14px; }
+    .desk .tag { margin-left: auto; padding: 4px 10px; border-radius: 999px; background: var(--cream); color: var(--slate); font-size: 13px; font-weight: 600; white-space: nowrap; }
+
+    .trust { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .trust div { padding: 22px; border-radius: 18px; background: #fff; box-shadow: 0 0 0 1px rgb(19 32 46 / 7%); }
+    .trust strong { display: block; font-family: var(--display); font-size: 18px; font-weight: 650; margin-bottom: 6px; }
+    .trust span { color: var(--muted); font-size: 15px; }
+
+    .cta { color: var(--cream); background: radial-gradient(60% 90% at 50% 0%, rgb(226 163 58 / 18%), transparent 70%), var(--navy); text-align: center; }
+    .cta h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 650; }
+    .cta p { margin: 16px auto 32px; max-width: 34rem; color: var(--mist); font-size: 18px; }
+    .cta .flock-small { width: 72px; margin-bottom: 24px; }
+
+    footer { padding: 32px 0 40px; color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; }
+    footer .logo svg { width: 34px; }
+    footer .wordmark { font-size: 19px; color: var(--navy); }
+    footer .mid { fill: var(--navy); stroke: var(--navy); }
+    footer .rear { fill: var(--slate); stroke: var(--slate); }
+
+    @media (max-width: 900px) {
+      .hero-body, .split { grid-template-columns: minmax(0, 1fr); }
+      .flock { max-width: 280px; order: -1; justify-self: start; }
+      .features { grid-template-columns: minmax(0, 1fr); }
+      .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      section { padding: 72px 0; }
+      .hero-body { padding: 24px 0 72px; gap: 32px; }
+    }
+    @media (max-width: 520px) {
+      .trust { grid-template-columns: minmax(0, 1fr); }
+      .nav .button-ghost { display: none; }
+      .desk .tag { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="bird" d="M-10 2 Q-5 -5 0 0 Q5 -5 10 2 Q5 -2 0 3 Q-5 -2 -10 2 Z"/>
+      <g id="flock">
+        <use href="#bird" class="bird rear" transform="translate(27 54) scale(1.1)"/>
+        <use href="#bird" class="bird rear" transform="translate(93 54) scale(1.1)"/>
+        <use href="#bird" class="bird mid" transform="translate(43 38) scale(1.3)"/>
+        <use href="#bird" class="bird mid" transform="translate(77 38) scale(1.3)"/>
+        <use href="#bird" class="bird lead" transform="translate(60 22) scale(1.5)"/>
+      </g>
+    </defs>
+  </svg>
+
+  <header class="hero">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main">
+        <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
+        <div class="actions">
+          <a class="button button-ghost" href="#features">See what it does</a>
+          <a class="button button-amber" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
+        </div>
+      </nav>
+      <div class="hero-body">
+        <div>
+          <p class="eyebrow">Launching early 2027 · Now booking demos</p>
+          <h1>The CRM that <em>finds the work</em> as well as tracking it.</h1>
+          <p class="lede">Lottka is CRM and business development for recruitment agencies. Run several fully separate desks, each with its own inbox, data and compliance, from one login and one subscription.</p>
+          <div class="actions">
+            <a class="button button-amber" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
+            <a class="button button-ghost" href="#features">See what it does</a>
+          </div>
+        </div>
+        <svg class="flock" viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">What it does</p>
+          <h2>Everything a desk needs, from the first lead to the placement.</h2>
+          <p>Built by a recruiter with twenty years on the desk, for consultants who would rather be on the phone than in a spreadsheet.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <span class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+            <h3>Find leads</h3>
+            <p>Watches careers pages, job boards and industry news, then ranks the employers under hiring pressure, with the reasons shown.</p>
+          </article>
+          <article class="feature">
+            <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
+            <h3>Outreach in your own voice</h3>
+            <p>Drafts emails that sound like you, from your own mailbox. Nothing goes out until you approve it.</p>
+          </article>
+          <article class="feature">
+            <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21v-6h6v6"/></svg></span>
+            <h3>A proper CRM</h3>
+            <p>Groups, sites and contacts, with terms that carry down from head office. Clients and candidates kept apart, the way they should be.</p>
+          </article>
+          <article class="feature">
+            <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
+            <h3>Candidates and jobs</h3>
+            <p>Shortlists, send-outs and placements, with matching openings nearby whenever someone new applies.</p>
+          </article>
+          <article class="feature">
+            <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><path d="M5 21h14"/></svg></span>
+            <h3>Job ads everywhere</h3>
+            <p>Your own jobs page, Google for Jobs, job board feeds and a jobs list for your website, with applications landing straight on the shortlist.</p>
+          </article>
+          <article class="feature">
+            <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span>
+            <h3>Win it retained</h3>
+            <p>Spots the vacancies worth pitching as retained, then coaches you through the call with a script built from the role.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap split">
+        <div>
+          <p class="kicker">Several desks, one login</p>
+          <h2 style="font-size:clamp(30px,3.6vw,42px);font-weight:650">Run every market as its own business.</h2>
+          <p style="color:var(--muted);font-size:18px;margin:16px 0 28px">Each desk has its own Google mailbox and calendar, its own clients and candidates, and its own privacy rules for the country it works in. Nothing crosses between them.</p>
+          <ul class="checks">
+            <li><div><strong>Today, sorted for you</strong><span>Open the app and see your next three things, in order.</span></div></li>
+            <li><div><strong>Meeting notes written for you</strong><span>Zoom, Teams and Google Meet transcripts become notes and tasks on the right record.</span></div></li>
+            <li><div><strong>Save from any page</strong><span>One click in Chrome adds the person you are viewing as a contact or a candidate.</span></div></li>
+          </ul>
+        </div>
+        <div class="desks" aria-label="Example desks">
+          <div class="desk"><span class="desk-mark" style="background:#6d42d6">N</span><div><span class="desk-name">Nursing · Australia</span><span class="desk-meta">Own inbox · Privacy Act and Spam Act</span></div><span class="tag">Desk 1</span></div>
+          <div class="desk"><span class="desk-mark" style="background:#0f8a6c">L</span><div><span class="desk-name">Life Sciences · Ireland &amp; Benelux</span><span class="desk-meta">Own inbox · GDPR</span></div><span class="tag">Desk 2</span></div>
+          <div class="desk"><span class="desk-mark" style="background:#b4530f">E</span><div><span class="desk-name">Engineering · United Kingdom</span><span class="desk-meta">Own inbox · UK GDPR and PECR</span></div><span class="tag">Desk 3</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Built to be trusted</p>
+          <h2>Your data, handled properly.</h2>
+        </div>
+        <div class="trust">
+          <div><strong>Hosted in the EU</strong><span>Servers in Finland, with daily backups.</span></div>
+          <div><strong>Privacy by country</strong><span>GDPR, UK GDPR, Australia, New Zealand and US rules applied per desk.</span></div>
+          <div><strong>You approve every email</strong><span>Nothing is sent automatically. Work emails only for client contacts.</span></div>
+          <div><strong>Made in Poland</strong><span>Designed and built in Europe for agencies everywhere.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="demo">
+      <div class="wrap">
+        <svg class="flock-small" viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg>
+        <h2>See Lottka on your own desk.</h2>
+        <p>A 30-minute walk-through with the founder, using your markets and your roles. We are taking a small number of agencies before launch.</p>
+        <a class="button button-amber" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
+      <span>© 2026 Lottka · Made in Poland · This site uses no cookies and no tracking.</span>
+      <a href="mailto:hello@lottka.com">hello@lottka.com</a>
+    </div>
+  </footer>
+</body>
+</html>

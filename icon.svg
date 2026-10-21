@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Lottka">
+  <defs>
+    <path id="bird" d="M-10 2 Q-5 -5 0 0 Q5 -5 10 2 Q5 -2 0 3 Q-5 -2 -10 2 Z" stroke-width="0.9" stroke-linejoin="round"/>
+  </defs>
+  <rect width="120" height="120" rx="27" fill="#13202E"/>
+  <use href="#bird" transform="translate(33 74) scale(2.2)" fill="#F5F2EC" stroke="#F5F2EC"/>
+  <use href="#bird" transform="translate(87 74) scale(2.2)" fill="#F5F2EC" stroke="#F5F2EC"/>
+  <use href="#bird" transform="translate(60 49) scale(2.6)" fill="#E2A33A" stroke="#E2A33A"/>
+</svg>
