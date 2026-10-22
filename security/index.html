@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security · Lottka</title>
+  <meta name="description" content="How Lottka protects recruitment data.">
+  <meta name="theme-color" content="#13202e">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    @font-face { font-family: "Inter"; font-weight: 100 900; font-display: swap; src: url("/fonts/inter-latin.woff2") format("woff2"); }
+    @font-face { font-family: "Sora"; font-weight: 100 800; font-display: swap; src: url("/fonts/sora-latin.woff2") format("woff2"); }
+    :root {
+      --navy: #13202e; --navy-2: #1b2b3d; --amber: #e2a33a; --amber-ink: #8a5a10; --slate: #3c4a5a;
+      --mist: #c9d3dd; --cream: #f5f2ec; --page: #f7f5f0; --line: #e1ddd3; --muted: #4a5868;
+      --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --display: "Sora", var(--font);
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--page); color: var(--navy); font: 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
+    .wrap { width: min(1120px, 100%); margin: 0 auto; padding: 0 24px; }
+    .narrow { width: min(820px, 100%); }
+    h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 1.15; text-wrap: balance; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo svg { width: 40px; height: auto; overflow: visible; }
+    .wordmark { font-family: var(--display); font-weight: 700; font-size: 23px; letter-spacing: -0.035em; line-height: 1; }
+    .bird { stroke-width: 0.6; stroke-linejoin: round; }
+    .lead { fill: var(--amber); stroke: var(--amber); }
+    .mid { fill: var(--cream); stroke: var(--cream); }
+    .rear { fill: var(--mist); stroke: var(--mist); }
+    .top { background: var(--navy); color: var(--cream); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 0; flex-wrap: wrap; }
+    .nav .links { display: flex; gap: 6px 18px; flex-wrap: wrap; align-items: center; }
+    .nav .links a { color: var(--cream); font-weight: 600; font-size: 15px; text-decoration: none; padding: 8px 2px; }
+    .nav .links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    main { padding: 48px 0 72px; }
+    .doc h1 { font-size: clamp(30px, 4.4vw, 42px); margin: 0 0 12px; }
+    .doc h2 { font-size: 22px; margin: 40px 0 10px; }
+    .doc p, .doc li { color: #24323f; }
+    .doc ul { padding-left: 22px; }
+    .doc li { margin: 4px 0; }
+    .doc > p:first-of-type { color: var(--muted); font-size: 15px; }
+    .doc a { color: var(--amber-ink); text-underline-offset: 3px; }
+    .table { overflow-x: auto; margin: 16px 0; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+    table { border-collapse: collapse; width: 100%; font-size: 15px; }
+    th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+    th { background: var(--cream); font-weight: 600; }
+    tr:last-child td { border-bottom: 0; }
+    .doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 28px 0; }
+    .door { display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 18px; background: #fff; border: 1px solid var(--line); text-decoration: none; transition: transform .15s, box-shadow .15s; }
+    .door:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -18px rgb(19 32 46 / 45%); }
+    .door h2 { margin: 0; font-size: 22px; }
+    .door p { margin: 0; color: var(--muted); font-size: 15px; }
+    .door .price { font-family: var(--display); font-size: 30px; font-weight: 700; color: var(--navy); letter-spacing: -0.03em; }
+    .door .go { margin-top: auto; padding-top: 8px; font-weight: 700; color: var(--amber-ink); }
+    .note { color: var(--muted); font-size: 15px; }
+    .glance { background: var(--cream); border: 1px solid var(--line); border-radius: 16px; padding: 8px 24px; margin: 24px 0; }
+    footer { padding: 32px 0 40px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+    footer .row { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; align-items: center; }
+    footer .legal { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+    footer .legal a { text-decoration: none; }
+    footer .legal a:hover { text-decoration: underline; }
+    footer .company { margin-top: 14px; font-size: 13px; line-height: 1.5; }
+    footer .logo svg { width: 30px; }
+    footer .wordmark { font-size: 18px; color: var(--navy); }
+    footer .mid { fill: var(--navy); stroke: var(--navy); }
+    footer .rear { fill: var(--slate); stroke: var(--slate); }
+    @media (max-width: 860px) { .doors { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <path id="bird" d="M-10 2 Q-5 -5 0 0 Q5 -5 10 2 Q5 -2 0 3 Q-5 -2 -10 2 Z"/>
+      <g id="flock">
+        <use href="#bird" class="bird rear" transform="translate(27 54) scale(1.1)"/>
+        <use href="#bird" class="bird rear" transform="translate(93 54) scale(1.1)"/>
+        <use href="#bird" class="bird mid" transform="translate(43 38) scale(1.3)"/>
+        <use href="#bird" class="bird mid" transform="translate(77 38) scale(1.3)"/>
+        <use href="#bird" class="bird lead" transform="translate(60 22) scale(1.5)"/>
+      </g>
+    </defs>
+  </svg>
+  <header class="top">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main">
+        <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
+        <div class="links">
+          <a href="/pricing/">Pricing</a>
+          <a href="/security/">Security</a>
+          <a href="/login/">Log in</a>
+          <a href="/signup/">Sign up</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="wrap narrow">
+<article class="doc">
+<h1>Security at Lottka</h1>
+<p>Recruitment data is personal data about real people. This is how we look after it.</p>
+<ul>
+<li><strong>Hosted in the EU.</strong> Lottka runs on Hetzner servers in Helsinki, Finland.</li>
+<li><strong>Desks walled off in the database.</strong> Every agency, and every desk inside an agency, is separated by PostgreSQL row-level security. A mistake in application code can't show one desk's data to another.</li>
+<li><strong>Encrypted in transit.</strong> Every connection uses HTTPS. Stored mailbox and integration credentials are encrypted.</li>
+<li><strong>Strong sign-in.</strong> Passwords are hashed with argon2id. Two-step sign-in is available to every user, and an owner can make it compulsory for the whole agency. You can see every browser you're signed in on and end any session.</li>
+<li><strong>Everything audited.</strong> An append-only audit trail records actions, including any time a Lottka operator opens an agency to give support.</li>
+<li><strong>Backups.</strong> Nightly backups, kept for 14 days, plus weekly backups for 8 weeks.</li>
+<li><strong>Your mailbox stays yours.</strong> Email is sent from each recruiter's own Google or Microsoft account. Lottka stores only the mail between a desk and its known client contacts, and never fetches attachments.</li>
+<li><strong>AI with a person in charge.</strong> Every AI-written email is a draft until a person approves it. Candidate data is never sent to the AI for drafting.</li>
+</ul>
+<p><strong>Found a problem?</strong> Email <a href="mailto:hello@lottka.com">hello@lottka.com</a> with the subject "Security". Please give us a chance to fix it before telling anyone else. We reply within two working days.</p>
+<p>Read more: <a href="/legal/dpa/">Data Processing Agreement</a> · <a href="/legal/subprocessors/">Sub-processors</a></p>
+</article>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">
+      <div class="row">
+        <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
+        <nav class="legal" aria-label="Legal">
+          <a href="/pricing/">Pricing</a>
+          <a href="/legal/">Terms and privacy</a>
+          <a href="/legal/refunds/">Refunds</a>
+          <a href="/legal/dpa/">Data processing</a>
+          <a href="/legal/subprocessors/">Sub-processors</a>
+          <a href="/security/">Security</a>
+          <a href="mailto:hello@lottka.com">hello@lottka.com</a>
+        </nav>
+      </div>
+      <p class="company">Lottka is provided by IHR Group sp. z o.o., ul. Długa 61, 87-800 Włocławek, Poland. KRS 0000788567, District Court in Toruń, 7th Commercial Division of the National Court Register. NIP 8883141067, REGON 383459865, share capital [SHARE CAPITAL] PLN. Payments are processed by Paddle.com, our reseller and Merchant of Record. This site uses no cookies and no tracking.</p>
+    </div>
+  </footer>
+</body>
+</html>

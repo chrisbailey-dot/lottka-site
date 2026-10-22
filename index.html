@@ -106,6 +106,12 @@
     footer .wordmark { font-size: 19px; color: var(--navy); }
     footer .mid { fill: var(--navy); stroke: var(--navy); }
     footer .rear { fill: var(--slate); stroke: var(--slate); }
+    footer .row { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; align-items: center; width: 100%; }
+    footer .legal { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+    footer .legal a { text-decoration: none; }
+    footer .legal a:hover { text-decoration: underline; }
+    footer .company { margin: 14px 0 0; font-size: 13px; line-height: 1.5; }
+    footer .wrap { display: block; }
 
     @media (max-width: 900px) {
       .hero-body, .split { grid-template-columns: minmax(0, 1fr); }
@@ -142,7 +148,8 @@
       <nav class="nav" aria-label="Main">
         <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
         <div class="actions">
-          <a class="nav-login" href="https://app.lottka.com/login">Log in</a>
+          <a class="nav-login" href="/pricing/">Pricing</a>
+          <a class="nav-login" href="/login/">Log in</a>
           <a class="button button-ghost" href="#features">See what it does</a>
           <a class="button button-amber" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
         </div>
@@ -252,9 +259,19 @@
 
   <footer>
     <div class="wrap">
-      <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
-      <span>© 2026 Lottka · Made in Poland · This site uses no cookies and no tracking.</span>
-      <a href="mailto:hello@lottka.com">hello@lottka.com</a>
+      <div class="row">
+        <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
+        <nav class="legal" aria-label="Legal">
+          <a href="/pricing/">Pricing</a>
+          <a href="/legal/">Terms and privacy</a>
+          <a href="/legal/refunds/">Refunds</a>
+          <a href="/legal/dpa/">Data processing</a>
+          <a href="/legal/subprocessors/">Sub-processors</a>
+          <a href="/security/">Security</a>
+          <a href="mailto:hello@lottka.com">hello@lottka.com</a>
+        </nav>
+      </div>
+      <p class="company">Lottka is provided by IHR Group sp. z o.o., ul. Długa 61, 87-800 Włocławek, Poland. KRS 0000788567, District Court in Toruń, 7th Commercial Division of the National Court Register. NIP 8883141067, REGON 383459865, share capital [SHARE CAPITAL] PLN. Payments are processed by Paddle.com, our reseller and Merchant of Record. This site uses no cookies and no tracking.</p>
     </div>
   </footer>
 </body>
