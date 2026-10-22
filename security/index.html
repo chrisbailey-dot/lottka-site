@@ -105,13 +105,13 @@
 <p>Recruitment data is personal data about real people. This is how we look after it.</p>
 <ul>
 <li><strong>Hosted in the EU.</strong> Lottka runs on Hetzner servers in Helsinki, Finland.</li>
-<li><strong>Desks walled off in the database.</strong> Every agency, and every desk inside an agency, is separated by PostgreSQL row-level security. A mistake in application code can't show one desk's data to another.</li>
+<li><strong>Desks walled off in the database.</strong> Every agency, and every desk inside an agency, is separated by PostgreSQL row-level security, a second wall behind the application's own checks.</li>
 <li><strong>Encrypted in transit.</strong> Every connection uses HTTPS. Stored mailbox and integration credentials are encrypted.</li>
 <li><strong>Strong sign-in.</strong> Passwords are hashed with argon2id. Two-step sign-in is available to every user, and an owner can make it compulsory for the whole agency. You can see every browser you're signed in on and end any session.</li>
 <li><strong>Everything audited.</strong> An append-only audit trail records actions, including any time a Lottka operator opens an agency to give support.</li>
 <li><strong>Backups.</strong> Nightly backups, kept for 14 days, plus weekly backups for 8 weeks.</li>
 <li><strong>Your mailbox stays yours.</strong> Email is sent from each recruiter's own Google or Microsoft account. Lottka stores only the mail between a desk and its known client contacts, and never fetches attachments.</li>
-<li><strong>AI with a person in charge.</strong> Every AI-written email is a draft until a person approves it. Candidate data is never sent to the AI for drafting.</li>
+<li><strong>AI with a person in charge.</strong> Every AI-written email is a draft until a person approves it. Candidate records are not used to write outreach drafts.</li>
 </ul>
 <p><strong>Found a problem?</strong> Email <a href="mailto:hello@lottka.com">hello@lottka.com</a> with the subject "Security". Please give us a chance to fix it before telling anyone else. We reply within two working days.</p>
 <p>Read more: <a href="/legal/dpa/">Data Processing Agreement</a> · <a href="/legal/subprocessors/">Sub-processors</a></p>
