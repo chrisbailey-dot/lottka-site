@@ -10,14 +10,22 @@ COMPANY = {
     "court": "District Court in Toruń, 7th Commercial Division of the National Court Register",
     "nip": "8883141067",
     "regon": "383459865",
-    "capital": "[SHARE CAPITAL] PLN",
+    "capital": "PLN 5,000",
     "email": "hello@lottka.com",
 }
 
 REGIONS = {
     "au": {
-        "label": "Australia & New Zealand",
-        "short": "Australia and New Zealand",
+        "label": "Australia",
+        "short": "Australia",
+        "currency": "AUD",
+        "monthly": "A$199",
+        "annual": "A$1,990",
+        "tax": "GST",
+    },
+    "nz": {
+        "label": "New Zealand",
+        "short": "New Zealand",
         "currency": "AUD",
         "monthly": "A$199",
         "annual": "A$1,990",
@@ -42,6 +50,17 @@ REGIONS = {
 }
 
 
+# The order the doors appear in everywhere. Must match ORDER in the app's regions.py.
+ORDER = ("au", "nz", "uk", "eu")
+
+
+def other_versions(kind: str, current: str | None = None) -> str:
+    """Links to the same document for the other regions (all of them if current is None)."""
+    return " · ".join(
+        f"[{REGIONS[k]['label']}](/{k}/{kind}/)" for k in ORDER if k != current
+    )
+
+
 def company_line() -> str:
     c = COMPANY
     return (
@@ -64,11 +83,17 @@ def terms(region: str) -> str:
     regional_law = ""
     if region == "au":
         regional_law = """
-**18.2 Customers in Australia.** Our services come with guarantees under the Australian Consumer Law that cannot be excluded, where they apply to you. Nothing in these terms excludes, restricts or modifies those guarantees or any other right you have under that law. Where the law allows us to limit our liability for failing to meet a guarantee, our liability is limited to supplying the services again or paying the cost of having them supplied again.
+**18.2 Australian Consumer Law.** Our services come with guarantees under the Australian Consumer Law that cannot be excluded, where they apply to you. Nothing in these terms excludes, restricts or modifies those guarantees or any other right you have under that law. Where the law allows us to limit our liability for failing to meet a guarantee, our liability is limited to supplying the services again or paying the cost of having them supplied again.
 
-**18.3 Customers in New Zealand.** As you acquire Lottka for business, the Consumer Guarantees Act 1993 does not apply to the extent the law allows, and we both agree that is fair and reasonable.
+**18.3 Where you can bring a claim.** The choice of Polish courts in clause 18.1 is non-exclusive for customers in Australia: you may also bring proceedings in the courts of the state or territory where you are based.
+"""
+    elif region == "nz":
+        regional_law = """
+**18.2 Business use and the Consumer Guarantees Act.** You acquire Lottka in trade, for the purposes of a business. To the extent the law allows, the Consumer Guarantees Act 1993 does not apply to this agreement, and we both agree that is fair and reasonable.
 
-**18.4 Where you can bring a claim.** For customers in Australia and New Zealand, the choice of Polish courts in clause 18.1 is non-exclusive: you may also bring proceedings in the courts of the state, territory or country where you are based.
+**18.3 Fair Trading Act.** We are both in trade, and to the extent the law allows, sections 9, 12A, 13 and 14(1) of the Fair Trading Act 1986 do not apply between us. We both agree that is fair and reasonable: Lottka is a standard business service, its description and these terms are published in full before you sign up, and you may cancel within 14 days of your first payment for a full refund.
+
+**18.4 Where you can bring a claim.** The choice of Polish courts in clause 18.1 is non-exclusive for customers in New Zealand: you may also bring proceedings in the courts of New Zealand.
 """
     elif region == "uk":
         regional_law = """
@@ -83,7 +108,7 @@ def terms(region: str) -> str:
 
     return f"""# Lottka Terms of Service — {r['label']}
 
-Version {VERSION}, effective {EFFECTIVE}. These terms apply to customers who choose the {r['label']} region when signing up. Other versions: [Australia & New Zealand](/au/terms/) · [United Kingdom](/uk/terms/) · [Europe](/eu/terms/).
+Version {VERSION}, effective {EFFECTIVE}. These terms apply to customers who choose the {r['label']} region when signing up. Other versions: {other_versions("terms", region)}.
 
 ## At a glance
 
@@ -242,12 +267,14 @@ def privacy(region: str) -> str:
     r = REGIONS[region]
     c = COMPANY
     regulators = {
-        "au": "the Office of the Australian Information Commissioner ([oaic.gov.au](https://www.oaic.gov.au)), or in New Zealand the Office of the Privacy Commissioner ([privacy.org.nz](https://www.privacy.org.nz))",
+        "au": "the Office of the Australian Information Commissioner ([oaic.gov.au](https://www.oaic.gov.au))",
+        "nz": "the Office of the Privacy Commissioner ([privacy.org.nz](https://www.privacy.org.nz))",
         "uk": "the Information Commissioner's Office ([ico.org.uk](https://ico.org.uk))",
         "eu": "the Polish data protection authority, Prezes Urzędu Ochrony Danych Osobowych ([uodo.gov.pl](https://uodo.gov.pl)), which is our lead authority, or the authority in the EU country where you live or work",
     }
     law = {
-        "au": "the Privacy Act 1988 and the Australian Privacy Principles, the New Zealand Privacy Act 2020, and the EU GDPR, which applies to us as a company established in Poland",
+        "au": "the Privacy Act 1988 and the Australian Privacy Principles, and the EU GDPR, which applies to us as a company established in Poland",
+        "nz": "the Privacy Act 2020 and its Information Privacy Principles, and the EU GDPR, which applies to us as a company established in Poland",
         "uk": "the UK GDPR and the Data Protection Act 2018, as amended by the Data (Use and Access) Act 2025, and the EU GDPR, which applies to us as a company established in Poland",
         "eu": "the EU General Data Protection Regulation (GDPR) and Polish law",
     }
@@ -267,9 +294,20 @@ As we are established in Poland, we are appointing a representative in the UK un
 - **Access and correction.** You can ask for access to, or correction of, your personal information at any time, as set out below.
 - **Automated decisions.** Lottka does not make automated decisions about the people this notice covers.
 """
+    if region == "nz":
+        extra = """
+## New Zealand Information Privacy Principles
+
+- **Privacy officer.** Our privacy officer can be reached at the email address above.
+- **Where your information is held.** Lottka is hosted in Finland (EU) by a provider that stores it for us and does not use it for its own purposes. Some information may be processed in the United States by our AI provider, under contracts that require safeguards comparable to New Zealand's Privacy Act.
+- **Information we get from someone else.** If we collect your details from another source, such as your company's website or a business directory, we tell you when we first contact you: who we are, where we got your details, why, and how to see or correct them, unless an exception in the Privacy Act applies.
+- **Access and correction.** You can ask to see or correct your personal information at any time. We respond within 20 working days.
+- **Privacy breaches.** If a privacy breach is likely to cause you serious harm, we notify you and the Privacy Commissioner as soon as practicable.
+- **Automated decisions.** Lottka does not make automated decisions about the people this notice covers.
+"""
     return f"""# Lottka Privacy Notice — {r['label']}
 
-Version {VERSION}, effective {EFFECTIVE}. Other versions: [Australia & New Zealand](/au/privacy/) · [United Kingdom](/uk/privacy/) · [Europe](/eu/privacy/).
+Version {VERSION}, effective {EFFECTIVE}. Other versions: {other_versions("privacy", region)}.
 
 ## Who we are
 
@@ -329,7 +367,7 @@ Lottka sets only the cookies it needs to keep you signed in and to protect forms
 
 You can ask for access to your data, a copy to take elsewhere, correction or deletion. You can object at any time to processing based on legitimate interests, including all marketing, and every email we send has an unsubscribe link.
 
-Write to [{c['email']}](mailto:{c['email']}). We reply within one month.
+Write to [{c['email']}](mailto:{c['email']}). We reply within {"20 working days" if region == "nz" else "one month"}.
 
 ## Complaints
 
@@ -343,7 +381,7 @@ We post updates here, and email account owners about material changes.
 
 DPA = f"""# Lottka Data Processing Agreement
 
-Version {VERSION}, effective {EFFECTIVE}. This agreement forms part of the Lottka Terms of Service for every region ([Australia & New Zealand](/au/terms/) · [United Kingdom](/uk/terms/) · [Europe](/eu/terms/)). It applies whenever Lottka processes personal data on a customer's behalf.
+Version {VERSION}, effective {EFFECTIVE}. This agreement forms part of the Lottka Terms of Service for every region ({other_versions("terms")}). It applies whenever Lottka processes personal data on a customer's behalf.
 
 ## 1. Roles
 

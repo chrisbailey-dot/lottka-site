@@ -68,7 +68,7 @@ STYLE = """
     th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
     th { background: var(--cream); font-weight: 600; }
     tr:last-child td { border-bottom: 0; }
-    .doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin: 28px 0; }
+    .doors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 28px 0; }
     .door { display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 18px; background: #fff; border: 1px solid var(--line); text-decoration: none; transition: transform .15s, box-shadow .15s; }
     .door:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -18px rgb(19 32 46 / 45%); }
     .door h2 { margin: 0; font-size: 22px; }
@@ -87,7 +87,7 @@ STYLE = """
     footer .wordmark { font-size: 18px; color: var(--navy); }
     footer .mid { fill: var(--navy); stroke: var(--navy); }
     footer .rear { fill: var(--slate); stroke: var(--slate); }
-    @media (max-width: 860px) { .doors { grid-template-columns: minmax(0, 1fr); } }
+    @media (max-width: 600px) { .doors { grid-template-columns: minmax(0, 1fr); } }
 """
 
 
@@ -165,11 +165,12 @@ def doors(kind: str) -> str:
     path = "login" if kind == "login" else "signup"
     cards = []
     blurbs = {
-        "au": "Australian Privacy Principles, prices in AUD. Your data is held in the EU under APP-standard terms.",
+        "au": "Australian Privacy Principles and Consumer Law, prices in AUD. Your data is held in the EU under APP-standard terms.",
+        "nz": "New Zealand Privacy Act 2020, prices in AUD. Your data is held in the EU under safeguards comparable to New Zealand law.",
         "uk": "UK GDPR, prices in GBP. Your data is held in the EU, which the UK recognises as adequate.",
         "eu": "GDPR and the EU Data Act, prices in EUR (PLN in Poland). Your data is held in the EU.",
     }
-    for key in ("au", "uk", "eu"):
+    for key in c.ORDER:
         r = c.REGIONS[key]
         cards.append(
             f"""      <a class="door" href="{APP}/{path}?region={key}">
@@ -184,7 +185,7 @@ def doors(kind: str) -> str:
         else "Choose your region to sign in. You use the same email and password whichever door you pick."
     )
     legal = " · ".join(
-        f'<a href="/{k}/terms/">{c.REGIONS[k]["label"]} terms</a>' for k in ("au", "uk", "eu")
+        f'<a href="/{k}/terms/">{c.REGIONS[k]["label"]} terms</a>' for k in c.ORDER
     )
     return f"""<article class="doc">
 <h1>{verb}</h1>
@@ -198,7 +199,7 @@ def doors(kind: str) -> str:
 
 def pricing() -> str:
     cards = []
-    for key in ("au", "uk", "eu"):
+    for key in c.ORDER:
         r = c.REGIONS[key]
         cards.append(
             f"""      <a class="door" href="{APP}/signup?region={key}">
@@ -234,7 +235,7 @@ def pricing() -> str:
 def legal_index() -> str:
     rows = "\n".join(
         f"| {c.REGIONS[k]['label']} | [Terms of service](/{k}/terms/) | [Privacy notice](/{k}/privacy/) |"
-        for k in ("au", "uk", "eu")
+        for k in c.ORDER
     )
     text = f"""# Terms and privacy
 
@@ -256,7 +257,7 @@ def write(site: Path, rel: str, title: str, description: str, body: str) -> None
 
 
 def build(site: Path) -> None:
-    for key in ("au", "uk", "eu"):
+    for key in c.ORDER:
         label = c.REGIONS[key]["label"]
         write(site, f"{key}/terms", f"Terms of Service, {label}", f"Lottka's terms of service for customers in {label}.", doc(c.terms(key)))
         write(site, f"{key}/privacy", f"Privacy Notice, {label}", f"How Lottka handles personal data, for {label}.", doc(c.privacy(key)))
