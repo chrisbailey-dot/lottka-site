@@ -19,32 +19,40 @@ REGIONS = {
         "label": "Australia",
         "short": "Australia",
         "currency": "AUD",
-        "monthly": "A$199",
-        "annual": "A$1,990",
+        "monthly": "A$249",
+        "annual": "A$2,490",
+        "addon_monthly": "A$189",
+        "addon_annual": "A$1,890",
         "tax": "GST",
     },
     "nz": {
         "label": "New Zealand",
         "short": "New Zealand",
         "currency": "NZD",
-        "monthly": "NZ$249",
-        "annual": "NZ$2,490",
+        "monthly": "NZ$309",
+        "annual": "NZ$3,090",
+        "addon_monthly": "NZ$239",
+        "addon_annual": "NZ$2,390",
         "tax": "GST",
     },
     "uk": {
         "label": "United Kingdom",
         "short": "the UK",
         "currency": "GBP",
-        "monthly": "£99",
-        "annual": "£990",
+        "monthly": "£129",
+        "annual": "£1,290",
+        "addon_monthly": "£100",
+        "addon_annual": "£1,000",
         "tax": "VAT",
     },
     "eu": {
         "label": "Europe",
         "short": "Europe",
         "currency": "EUR or PLN",
-        "monthly": "€115 (495 zł in Poland)",
-        "annual": "€1,150 (4,950 zł in Poland)",
+        "monthly": "€155 (675 zł in Poland)",
+        "annual": "€1,550 (6,750 zł in Poland)",
+        "addon_monthly": "€120 (525 zł in Poland)",
+        "addon_annual": "€1,200 (5,250 zł in Poland)",
         "tax": "VAT",
     },
 }
@@ -119,7 +127,7 @@ Version {VERSION}, effective {EFFECTIVE}. These terms apply to customers who cho
 ## At a glance
 
 - **Two plans.** Monthly: cancel any time. Annual: 12 months, paid up front, two months free.
-- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The same list price applies across the region, in the region's billing currency.
+- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The Temp & Contract add-on is extra, only for the users you add it for. The same list price applies across the region, in the region's billing currency.
 - **First 14 days:** cancel within 14 days of your first payment for a full refund.
 - **Your data is yours.** Export it any time, free.
 - **Leaving early is free** if we let you down, raise the price or change these terms against you.
@@ -134,7 +142,7 @@ Lottka is for businesses only. By signing up you confirm that you are acting for
 
 ## 3. The service
 
-Lottka is an online recruitment CRM and business development platform: client and candidate records, outreach from your own mailbox, separate desks, job ads, market watch, meeting notes and AI-assisted drafting, as described at lottka.com.
+Lottka is an online recruitment CRM and business development platform: client and candidate records, outreach from your own mailbox, separate desks, job ads, market watch, meeting notes and AI-assisted drafting, as described at lottka.com. Temp and contract management is an optional add-on (clause 5.7).
 
 To use it you need a current web browser and an internet connection. Mailbox and calendar features need a Google Workspace or Microsoft 365 account. We may improve and change features, but we will not materially reduce the core service during a period you have paid for.
 
@@ -168,6 +176,8 @@ You are responsible for your users, their sign-in details and what they do in Lo
 - If you don't accept it, you may cancel before it takes effect.
 
 **5.6 Failed payments.** If a payment fails, we will tell you. If it isn't fixed within 14 days, we may suspend access until it is. Your data is not deleted while your access is suspended.
+
+**5.7 Temp & Contract add-on.** You may add Temp & Contract for the users who need it, at {r['addon_monthly']} per user a month on the Monthly Plan or {r['addon_annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. It is billed and renews with your plan, and clauses 5.4 to 5.6 and 6 apply to it as they do to your plan. You may remove it on its own at any time: on the Monthly Plan it stops at the end of the month you have paid for, and on the Annual Plan it comes off at your next renewal.
 
 ## 6. Term, renewal, cancelling and refunds
 
@@ -517,6 +527,8 @@ Effective {EFFECTIVE}. Lottka is sold through Paddle.com, our reseller and Merch
 - **If we let you down.** If we materially breach our terms, raise the price, change the terms to your detriment, transfer your agreement outside our group, or you object to a new sub-processor and we can't resolve it, you can leave and we refund the fees for the whole months left in your paid period.
 - **Customers in the EU** switching provider under the EU Data Act: see clause 6.6 of the [European terms](/eu/terms/).
 - **Otherwise,** fees already paid are not refunded, except where the law requires. Cancelling stops the next renewal, and you keep access until the end of the period you paid for.
+
+These rules apply to add-ons, such as Temp & Contract, as they do to your plan.
 
 To ask for a refund, email [{COMPANY['email']}](mailto:{COMPANY['email']}) or contact Paddle through the link on your receipt.
 """

@@ -207,18 +207,31 @@ def pricing() -> str:
         <span class="price">{r['monthly'].split(' (')[0]}</span>
         <p>per user a month on the Monthly Plan. Cancel any time.</p>
         <p><strong>{r['annual'].split(' (')[0]}</strong> per user a year on the Annual Plan: two months free, paid up front.</p>
-        {'<p>In Poland: 495 zł a month, or 4,950 zł a year, per user.</p>' if key == 'eu' else ''}
+        {'<p>In Poland: 675 zł a month, or 6,750 zł a year, per user.</p>' if key == 'eu' else ''}
         <span class="go">Sign up →</span>
       </a>"""
         )
+    addon_rows = "\n".join(
+        f"<tr><td>{c.REGIONS[k]['label']}</td><td>{html.escape(c.REGIONS[k]['addon_monthly'])}</td>"
+        f"<td>{html.escape(c.REGIONS[k]['addon_annual'])}</td></tr>"
+        for k in c.ORDER
+    )
     return f"""<article class="doc">
-<h1>One price, everything included</h1>
-<p>Every desk, every feature, outreach from your own mailbox, market watch and AI drafting. No setup fee, no free trial and no \"sign today\" deals: the same list price for everyone in a region, wherever they are.</p>
+<h1>One price, everything in one place</h1>
+<p>Every desk, every feature, outreach from your own mailbox, market watch and AI drafting. No setup fee, no free trial and no \"sign today\" deals: the same list price for everyone in a region, wherever they are. Running temps and contractors too? Add Temp &amp; Contract for the users who need it.</p>
+<p class="note">Prices are set at the same value in each currency. Small differences between regions come from exchange rates, and we review them once a year.</p>
 </article>
 <div class="doors">
 {chr(10).join(cards)}
 </div>
 <article class="doc">
+<h2>Temp &amp; Contract add-on</h2>
+<p>For desks that place temps and contractors. Added per user, only for the people who need it, billed with your plan, and removable on its own.</p>
+<div class="table"><table>
+<thead><tr><th>Region</th><th>Monthly Plan, per user a month</th><th>Annual Plan, per user a year</th></tr></thead>
+<tbody>
+{addon_rows}
+</tbody></table></div>
 <h2>What you're signing up to</h2>
 <ul>
 <li><strong>Monthly Plan:</strong> billed monthly, cancel any time, and it ends at the end of the month you've paid for.</li>
