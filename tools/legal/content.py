@@ -74,10 +74,16 @@ def terms(region: str) -> str:
     r = REGIONS[region]
     c = COMPANY
 
+    not_offered = (
+        "Lottka is not offered for personal, domestic or household use."
+        if region in ("au", "nz")
+        else "Lottka is not offered to consumers."
+    )
+
     eu_switching = ""
     if region == "eu":
         eu_switching = f"""
-**6.6 Switching provider (customers established in the EU).** Under the EU Data Act you may switch to another provider, or leave, on up to two months' notice at any time, including during an Annual Plan. We will help you export your data in a structured, commonly used format, free of charge, and the agreement ends once the switch is complete. If you leave an Annual Plan early this way, we refund 25% of the fees for the whole months left in your plan year. The 75% we keep is our early termination charge: it reflects the revenue we planned on for your committed year, less the hosting, AI and support costs we no longer carry. We charge no switching or export fee.
+**6.6 Switching provider (customers established in the EU).** Under the EU Data Act you may switch to another provider, or leave, on up to two months' notice at any time, including during an Annual Plan. We will help you export your data in a structured, commonly used format, free of charge, and the agreement ends once the switch is complete. If you leave an Annual Plan early this way, we refund 25% of the fees for the whole months left in your plan year. The 75% we keep is our early termination charge: it reflects the revenue we planned on for your committed year, less the hosting, AI and support costs we no longer carry. We charge no switching or export fee. If you give notice within 14 days of a renewal, clause 6.3 applies instead and we refund the renewal in full.
 """
 
     regional_law = ""
@@ -103,7 +109,7 @@ def terms(region: str) -> str:
         regional_law = """
 **18.2 Customers in the European Union.** Nothing in these terms takes away a right you have under the mandatory law of the EU member state where you are established, including the EU Data Act.
 
-**18.3 Sole traders in Poland.** If you are a natural person running a business in Poland and this agreement is not of a professional character for you, nothing in these terms limits the consumer protections Polish law gives you, including those against abusive clauses and any right of withdrawal.
+**18.3 Sole traders in Poland.** If you are a natural person running a business in Poland and this agreement is not of a professional character for you, nothing in these terms limits the consumer protections Polish law gives you, including those against abusive clauses. You may withdraw from the agreement within 14 days of signing up, without giving a reason, by telling us at hello@lottka.com; we then refund everything you paid, as under clause 6.1.
 """
 
     return f"""# Lottka Terms of Service — {r['label']}
@@ -113,7 +119,7 @@ Version {VERSION}, effective {EFFECTIVE}. These terms apply to customers who cho
 ## At a glance
 
 - **Two plans.** Monthly: cancel any time. Annual: 12 months, paid up front, two months free.
-- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The same price applies in every country we serve.
+- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The same list price applies in every country we serve, in local currency.
 - **First 14 days:** cancel within 14 days of your first payment for a full refund.
 - **Your data is yours.** Export it any time, free.
 - **Leaving early is free** if we let you down, raise the price or change these terms against you.
@@ -124,7 +130,7 @@ Lottka is provided by {company_line()} ("Lottka", "we", "us"). Contact: [{c['ema
 
 ## 2. Who can use Lottka
 
-Lottka is for businesses only. By signing up you confirm that you are acting for a business and have authority to bind it (the "Customer", "you"). Lottka is not offered to consumers.
+Lottka is for businesses only. By signing up you confirm that you are acting for a business and have authority to bind it (the "Customer", "you"). {not_offered}
 
 ## 3. The service
 
@@ -179,8 +185,9 @@ You are responsible for your users, their sign-in details and what they do in Lo
 **6.4 Leaving early at no cost.** You may end the agreement at any time, with a refund of the fees for the whole months left in your paid period, if:
 
 - we materially breach these terms and don't fix the breach within 30 days of your notice;
-- we change prices or these terms to your detriment (clauses 5.5 and 16); or
-- you object to a new sub-processor and we can't resolve it (clause 6 of our Data Processing Agreement).
+- we change prices or these terms to your detriment (clauses 5.5 and 16);
+- you object to a new sub-processor and we can't resolve it (clause 6 of our Data Processing Agreement); or
+- we transfer this agreement to anyone outside our group of companies (clause 17).
 
 **6.5 Other refunds.** Except as set out in this clause 6 or where the law requires, fees already paid are not refunded. Refunds are made by Paddle to the original payment method.
 {eu_switching}
@@ -249,7 +256,7 @@ Either of us may end the agreement by notice if the other materially breaches it
 
 ## 17. General
 
-- We may transfer this agreement to a company in our group, or to a successor to the Lottka business, with notice to you.
+- Either of us may transfer this agreement to a company in its own group, or to a successor to its business, with notice to the other. If we transfer it to anyone outside our group, you may end the agreement under clause 6.4. Otherwise, neither of us may transfer it without the other's agreement, which will not be unreasonably withheld.
 - If any part of these terms is invalid, the rest stands.
 - These terms, the Data Processing Agreement and your order are the whole agreement for Lottka.
 
@@ -278,6 +285,11 @@ def privacy(region: str) -> str:
         "uk": "the UK GDPR and the Data Protection Act 2018, as amended by the Data (Use and Access) Act 2025, and the EU GDPR, which applies to us as a company established in Poland",
         "eu": "the EU General Data Protection Regulation (GDPR) and Polish law",
     }
+    uk_complaints = (
+        ": we acknowledge a complaint within 30 days and tell you what we are doing about it"
+        if region == "uk"
+        else ""
+    )
     extra = ""
     if region == "uk":
         extra = """
@@ -291,7 +303,9 @@ As we are established in Poland, we are appointing a representative in the UK un
 
 - **Overseas storage.** Lottka is hosted in Finland (EU), so personal information you give us is held outside Australia, and some may be processed in the United States by our AI provider. EU law and our contracts give it protection at least comparable to the Australian Privacy Principles.
 - **Anonymity.** You can contact us without identifying yourself, but we need your details to open an account.
-- **Access and correction.** You can ask for access to, or correction of, your personal information at any time, as set out below.
+- **Access and correction.** You can ask for access to, or correction of, your personal information at any time, as set out under "Your rights" above. We respond within 30 days.
+- **Data breaches.** If a data breach is likely to result in serious harm to you, we notify you and the Office of the Australian Information Commissioner under the Notifiable Data Breaches scheme.
+- **Complaints.** Tell us first at the email address above. We acknowledge a complaint within 7 days and aim to resolve it within 30 days. If you are not satisfied, you can complain to the OAIC.
 - **Automated decisions.** Lottka does not make automated decisions about the people this notice covers.
 """
     if region == "nz":
@@ -331,7 +345,8 @@ It does not cover the contacts, candidates and emails that our customers keep in
 | Account details: name, work email, agency name, password (stored only as a hash), two-step sign-in settings | To provide your account and keep it secure | Contract | While the account is open, then 30 days |
 | Billing details: subscription, plan and number of users, invoices, billing country (Paddle holds card and payment details) | To charge for Lottka and keep tax records | Contract; legal obligation | 5 years after the end of the tax year, as Polish tax law requires |
 | Security records: sign-ins, browser, IP address, audit trail of actions | To protect accounts, investigate misuse and show accountability | Legitimate interests | The audit trail is kept with the account; rate-limit counters for one day |
-| Usage: which areas of Lottka a user opened each day | To improve Lottka and show agency owners how it is used | Legitimate interests | While the account is open |
+| Usage: which areas of Lottka a user opened each day | To improve Lottka | Legitimate interests | While the account is open |
+| Website visits: IP address and browser, in our web host's server logs (lottka.com sets no cookies) | To deliver the website and keep it secure | Legitimate interests | As long as the host keeps its logs, normally no more than 90 days |
 | Demo requests: name, work email, agency, team size, message | To reply and arrange a demo | Legitimate interests | 24 months, or sooner on request |
 | Business contacts we approach: name, job title, work email, company, where we found it | To offer Lottka to recruitment businesses | Legitimate interests; consent where the law requires it | Until you object, or 24 months without contact |
 | Support emails | To answer you | Contract; legitimate interests | 24 months |
@@ -339,9 +354,10 @@ It does not cover the contacts, candidates and emails that our customers keep in
 ## Who we share it with
 
 - **Hetzner Online GmbH**, which hosts Lottka in Finland (EU).
+- **The company that hosts the lottka.com website**, which sees the network details of visitors.
 - **Paddle.com**, our reseller and Merchant of Record, which takes payment, issues invoices and handles tax. Paddle processes payment data as an independent controller under its own privacy notice.
 - **Google**, which runs our own email.
-- **Anthropic**, our AI provider, only for the features described under "Google user data" below.
+- **Anthropic**, our AI provider, for the AI features you use: drafting, summaries, call scripts and classification. What it receives from a connected Google account is limited as described under "Google user data" below.
 
 We also share data where the law requires it. We never sell personal data.
 
@@ -365,13 +381,13 @@ Lottka sets only the cookies it needs to keep you signed in and to protect forms
 
 ## Your rights
 
-You can ask for access to your data, a copy to take elsewhere, correction or deletion. You can object at any time to processing based on legitimate interests, including all marketing, and every email we send has an unsubscribe link.
+You can ask for access to your data, a copy to take elsewhere, correction, deletion, or for us to restrict how we use it. You can object at any time to processing based on legitimate interests, including all marketing, and every email we send has an unsubscribe link. Where we rely on your consent, you can withdraw it at any time; that does not affect what we did before. Lottka does not make decisions about you based solely on automated processing.
 
 Write to [{c['email']}](mailto:{c['email']}). We reply within {"20 working days" if region == "nz" else "one month"}.
 
 ## Complaints
 
-You can complain to {regulators[region]}. Please tell us first, so we can put it right.
+You can complain to {regulators[region]}. Please tell us first, so we can put it right{uk_complaints}.
 {extra}
 ## Changes
 
@@ -437,7 +453,7 @@ For customers in Australia and New Zealand, Lottka:
 
 - handles Customer Data consistently with the Australian Privacy Principles and the New Zealand Information Privacy Principles;
 - does not use or disclose it for any purpose other than providing the service; and
-- helps the Customer assess a suspected eligible data breach within the timeframe of the Notifiable Data Breaches scheme.
+- helps the Customer assess a suspected eligible data breach within the timeframe of the Notifiable Data Breaches scheme (Australia), and whether a privacy breach is notifiable under Part 6 of the Privacy Act 2020 so the Customer can notify as soon as practicable (New Zealand).
 
 This clause is intended to support the Customer's reasonable steps under APP 8.1.
 
@@ -453,9 +469,11 @@ Each party's liability under this agreement falls within the limits in the Terms
 | Candidate records | Candidates and applicants | Contact details, CV, work history, pay expectations, consents | Recruitment | Reviewed after 24 months (UK and EU) or 36 months (Australia and New Zealand) |
 | Meeting notes | Meeting participants | Transcript (temporary), summary, follow-ups | Accurate records of meetings | Transcript 1 to 365 days; notes 24 months |
 | Calendar | Meeting attendees | Event title, time, attendee addresses | Scheduling, meeting context | Until the calendar is disconnected, and at most 24 months |
-| Audit trail | Agency users | Action, time, network address | Security, accountability | Kept with the account |
-| Product metrics | Agency users | Areas used each day | Product improvement, reporting | Kept with the account |
+| Audit trail | Agency users | Action, time, network address | The Customer's own accountability: showing it who did what in its agency | Kept with the account |
+| Usage reports | Agency users | Areas used each day | Showing the Customer's owners how their team uses Lottka | Kept with the account |
 | Job applications | Applicants | As candidates, plus a hashed network address for one day | Recruitment, abuse prevention | As candidates; counters one day |
+
+Lottka also keeps sign-in, security and usage records about agency users for its own purposes, to keep Lottka secure and to improve it. For that use Lottka is the controller, and its privacy notice for each region covers it.
 
 ## Schedule 2 — Security measures
 
@@ -498,7 +516,7 @@ Effective {EFFECTIVE}. Lottka is sold through Paddle.com, our reseller and Merch
 
 - **First 14 days.** Cancel within 14 days of your first payment and we refund everything you paid.
 - **Annual renewals.** If your Annual Plan renews and you didn't mean it to, cancel within 14 days of the renewal date and we refund the renewal in full. We email you at least 30 days before each renewal.
-- **If we let you down.** If we materially breach our terms, raise the price, change the terms to your detriment, or you object to a new sub-processor and we can't resolve it, you can leave and we refund the fees for the whole months left in your paid period.
+- **If we let you down.** If we materially breach our terms, raise the price, change the terms to your detriment, transfer your agreement outside our group, or you object to a new sub-processor and we can't resolve it, you can leave and we refund the fees for the whole months left in your paid period.
 - **Customers in the EU** switching provider under the EU Data Act: see clause 6.6 of the [European terms](/eu/terms/).
 - **Otherwise,** fees already paid are not refunded, except where the law requires. Cancelling stops the next renewal, and you keep access until the end of the period you paid for.
 

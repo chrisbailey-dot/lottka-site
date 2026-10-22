@@ -107,7 +107,7 @@ def footer() -> str:
           <a href="mailto:{co['email']}">{co['email']}</a>
         </nav>
       </div>
-      <p class="company">Lottka is provided by {html.escape(co['name'])}, {html.escape(co['address'])}. KRS {co['krs']}, {html.escape(co['court'])}. NIP {co['nip']}, REGON {co['regon']}, share capital {html.escape(co['capital'])}. Payments are processed by Paddle.com, our reseller and Merchant of Record. This site uses no cookies and no tracking.</p>
+      <p class="company">Lottka is provided by {html.escape(co['name'])}, {html.escape(co['address'])}. KRS {co['krs']}, {html.escape(co['court'])}. NIP {co['nip']}, REGON {co['regon']}, share capital {html.escape(co['capital'])}. Payments are processed by Paddle.com, our reseller and Merchant of Record. lottka.com uses no cookies and no tracking; the Lottka app sets only the cookies needed to keep you signed in.</p>
     </div>
   </footer>"""
 
@@ -213,7 +213,7 @@ def pricing() -> str:
         )
     return f"""<article class="doc">
 <h1>One price, everything included</h1>
-<p>Every desk, every feature, outreach from your own mailbox, market watch and AI drafting. No setup fee, no free trial and no \"sign today\" deals: the same price for everyone, everywhere.</p>
+<p>Every desk, every feature, outreach from your own mailbox, market watch and AI drafting. No setup fee, no free trial and no \"sign today\" deals: the same list price for everyone, everywhere, in local currency.</p>
 </article>
 <div class="doors">
 {chr(10).join(cards)}
