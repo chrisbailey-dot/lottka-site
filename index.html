@@ -50,6 +50,9 @@
       background: radial-gradient(60% 70% at 85% 10%, rgb(226 163 58 / 16%), transparent 70%), var(--navy); }
     .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; }
     .nav .button { min-height: 44px; padding: 0 18px; font-size: 15px; }
+    .nav .actions { align-items: center; }
+    .nav-login { color: var(--cream); font-weight: 600; font-size: 15px; text-decoration: none; padding: 10px 6px; }
+    .nav-login:hover { text-decoration: underline; text-underline-offset: 4px; }
     .hero-body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; padding: 56px 0 96px; }
     .eyebrow { display: inline-block; margin: 0 0 18px; padding: 6px 12px; border-radius: 999px; background: rgb(226 163 58 / 14%); color: #f0c77e; font-size: 14px; font-weight: 600; }
     .hero h1 { font-size: clamp(38px, 5.6vw, 62px); font-weight: 700; }
@@ -139,6 +142,7 @@
       <nav class="nav" aria-label="Main">
         <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
         <div class="actions">
+          <a class="nav-login" href="https://app.lottka.com/login">Log in</a>
           <a class="button button-ghost" href="#features">See what it does</a>
           <a class="button button-amber" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
         </div>
