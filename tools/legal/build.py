@@ -166,7 +166,7 @@ def doors(kind: str) -> str:
     cards = []
     blurbs = {
         "au": "Australian Privacy Principles and Consumer Law, prices in AUD. Your data is held in the EU under APP-standard terms.",
-        "nz": "New Zealand Privacy Act 2020, prices in AUD. Your data is held in the EU under safeguards comparable to New Zealand law.",
+        "nz": "New Zealand Privacy Act 2020, prices in NZD. Your data is held in the EU under safeguards comparable to New Zealand law.",
         "uk": "UK GDPR, prices in GBP. Your data is held in the EU, which the UK recognises as adequate.",
         "eu": "GDPR and the EU Data Act, prices in EUR (PLN in Poland). Your data is held in the EU.",
     }

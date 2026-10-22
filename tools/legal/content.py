@@ -26,9 +26,9 @@ REGIONS = {
     "nz": {
         "label": "New Zealand",
         "short": "New Zealand",
-        "currency": "AUD",
-        "monthly": "A$199",
-        "annual": "A$1,990",
+        "currency": "NZD",
+        "monthly": "NZ$249",
+        "annual": "NZ$2,490",
         "tax": "GST",
     },
     "uk": {
