@@ -212,13 +212,14 @@ def pricing() -> str:
       </a>"""
         )
     addon_rows = "\n".join(
-        f"<tr><td>{c.REGIONS[k]['label']}</td><td>{html.escape(c.REGIONS[k]['addon_monthly'])}</td>"
-        f"<td>{html.escape(c.REGIONS[k]['addon_annual'])}</td></tr>"
+        f"<tr><td>{c.REGIONS[k]['label']}</td><td>{html.escape(c.REGIONS[k]['addon_small'])}</td>"
+        f"<td>{html.escape(c.REGIONS[k]['addon_large'])}</td>"
+        f"<td>{html.escape(c.REGIONS[k]['addon_per_worker'])}</td></tr>"
         for k in c.ORDER
     )
     return f"""<article class="doc">
 <h1>One price, everything in one place</h1>
-<p>Every desk, every feature, outreach from your own mailbox, market watch and AI drafting. No setup fee, no free trial and no \"sign today\" deals: the same list price for everyone in a region, wherever they are. Running temps and contractors too? Add Temp &amp; Contract for the users who need it.</p>
+<p>Every desk, every feature, outreach from your own mailbox, market watch and AI drafting. No setup fee, no free trial and no \"sign today\" deals: the same list price for everyone in a region, wherever they are. Running temps and contractors too? Add Temp &amp; Contract: one price for the whole agency.</p>
 <p class="note">Prices are set at the same value in each currency. Small differences between regions come from exchange rates, and we review them once a year.</p>
 </article>
 <div class="doors">
@@ -226,9 +227,9 @@ def pricing() -> str:
 </div>
 <article class="doc">
 <h2>Temp &amp; Contract add-on</h2>
-<p>For desks that place temps and contractors. Added per user, only for the people who need it, billed with your plan, and removable on its own.</p>
+<p>For desks that place temps and contractors. One price for the whole agency, not per user, set by how many temps and contractors you have working that month. Billed with your plan and removable on its own. On the Annual Plan it is ten months' price, paid up front.</p>
 <div class="table"><table>
-<thead><tr><th>Region</th><th>Monthly Plan, per user a month</th><th>Annual Plan, per user a year</th></tr></thead>
+<thead><tr><th>Region</th><th>Up to 50 temps, a month</th><th>51 to 150, a month</th><th>Each one over 150, a month</th></tr></thead>
 <tbody>
 {addon_rows}
 </tbody></table></div>

@@ -21,8 +21,11 @@ REGIONS = {
         "currency": "AUD",
         "monthly": "A$249",
         "annual": "A$2,490",
-        "addon_monthly": "A$189",
-        "addon_annual": "A$1,890",
+        "addon_small": "A$289",
+        "addon_small_annual": "A$2,890",
+        "addon_large": "A$479",
+        "addon_large_annual": "A$4,790",
+        "addon_per_worker": "A$1.90",
         "tax": "GST",
     },
     "nz": {
@@ -31,8 +34,11 @@ REGIONS = {
         "currency": "NZD",
         "monthly": "NZ$309",
         "annual": "NZ$3,090",
-        "addon_monthly": "NZ$239",
-        "addon_annual": "NZ$2,390",
+        "addon_small": "NZ$349",
+        "addon_small_annual": "NZ$3,490",
+        "addon_large": "NZ$589",
+        "addon_large_annual": "NZ$5,890",
+        "addon_per_worker": "NZ$2.40",
         "tax": "GST",
     },
     "uk": {
@@ -41,8 +47,11 @@ REGIONS = {
         "currency": "GBP",
         "monthly": "£129",
         "annual": "£1,290",
-        "addon_monthly": "£100",
-        "addon_annual": "£1,000",
+        "addon_small": "£149",
+        "addon_small_annual": "£1,490",
+        "addon_large": "£249",
+        "addon_large_annual": "£2,490",
+        "addon_per_worker": "£1",
         "tax": "VAT",
     },
     "eu": {
@@ -51,8 +60,11 @@ REGIONS = {
         "currency": "EUR or PLN",
         "monthly": "€155 (675 zł in Poland)",
         "annual": "€1,550 (6,750 zł in Poland)",
-        "addon_monthly": "€120 (525 zł in Poland)",
-        "addon_annual": "€1,200 (5,250 zł in Poland)",
+        "addon_small": "€179 (779 zł in Poland)",
+        "addon_small_annual": "€1,790 (7,790 zł in Poland)",
+        "addon_large": "€299 (1,299 zł in Poland)",
+        "addon_large_annual": "€2,990 (12,990 zł in Poland)",
+        "addon_per_worker": "€1.20 (5.20 zł in Poland)",
         "tax": "VAT",
     },
 }
@@ -127,7 +139,7 @@ Version {VERSION}, effective {EFFECTIVE}. These terms apply to customers who cho
 ## At a glance
 
 - **Two plans.** Monthly: cancel any time. Annual: 12 months, paid up front, two months free.
-- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The Temp & Contract add-on is extra, only for the users you add it for. The same list price applies across the region, in the region's billing currency.
+- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The Temp & Contract add-on is extra: one price for your whole agency, set by how many temps and contractors you have working (clause 5.7). The same list price applies across the region, in the region's billing currency.
 - **First 14 days:** cancel within 14 days of your first payment for a full refund.
 - **Your data is yours.** Export it any time, free.
 - **Leaving early is free** if we let you down, raise the price or change these terms against you.
@@ -159,7 +171,7 @@ You are responsible for your users, their sign-in details and what they do in Lo
 - **Monthly Plan:** billed each month in advance. No minimum term.
 - **Annual Plan:** a 12-month term, paid in full in advance.
 
-**5.2 Prices.** Prices are per user, as shown on our [pricing page](/pricing/) and at checkout. In {r['short']} they are charged in {r['currency']}.
+**5.2 Prices.** Plan prices are per user, and the Temp & Contract add-on is per agency (clause 5.7), as shown on our [pricing page](/pricing/) and at checkout. In {r['short']} they are charged in {r['currency']}.
 
 **5.3 Paddle is our reseller.** Our order process is conducted by our online reseller and Merchant of Record, Paddle.com. Paddle takes payment, issues your invoices, adds {r['tax']} or other sales tax where it applies, and handles billing enquiries and refunds. We handle all other support. Your purchase is also subject to Paddle's buyer terms.
 
@@ -177,7 +189,7 @@ You are responsible for your users, their sign-in details and what they do in Lo
 
 **5.6 Failed payments.** If a payment fails, we will tell you. If it isn't fixed within 14 days, we may suspend access until it is. Your data is not deleted while your access is suspended.
 
-**5.7 Temp & Contract add-on.** You may add Temp & Contract for the users who need it, at {r['addon_monthly']} per user a month on the Monthly Plan or {r['addon_annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. It is billed and renews with your plan, and clauses 5.4 to 5.6 and 6 apply to it as they do to your plan. You may remove it on its own at any time: on the Monthly Plan it stops at the end of the month you have paid for, and on the Annual Plan it comes off at your next renewal.
+**5.7 Temp & Contract add-on.** You may add Temp & Contract to your account. It is one price for your agency, not per user, set by your active workers: a temp or contractor with at least one shift or timesheet in Lottka in the billing month. Up to 50 active workers: {r['addon_small']} a month on the Monthly Plan or {r['addon_small_annual']} a year on the Annual Plan. 51 to 150: {r['addon_large']} a month or {r['addon_large_annual']} a year. Over 150: the 51 to 150 price plus {r['addon_per_worker']} a month for each active worker over 150. Plus {r['tax']} where it applies. If your active workers move into a different band, the new price applies from your next billing date. It is billed and renews with your plan, and clauses 5.4 to 5.6 and 6 apply to it as they do to your plan. You may remove it on its own at any time: on the Monthly Plan it stops at the end of the month you have paid for, and on the Annual Plan it comes off at your next renewal.
 
 ## 6. Term, renewal, cancelling and refunds
 
