@@ -107,19 +107,29 @@ def footer() -> str:
           <a href="mailto:{co['email']}">{co['email']}</a>
         </nav>
       </div>
-      <p class="company">Lottka is provided by {html.escape(co['name'])}, {html.escape(co['address'])}. KRS {co['krs']}, {html.escape(co['court'])}. NIP {co['nip']}, REGON {co['regon']}, share capital {html.escape(co['capital'])}. Payments are processed by Paddle.com, our reseller and Merchant of Record. lottka.com uses no cookies and no tracking; the Lottka app sets only the cookies needed to keep you signed in and to protect forms.</p>
+      <p class="company">Lottka is provided by {html.escape(co['name'])}, {html.escape(co['address'])}. KRS {co['krs']}, {html.escape(co['court'])}. NIP {co['nip']}, REGON {co['regon']}, share capital {html.escape(co['capital'])}. Payments are processed by Stripe. lottka.com uses no cookies and no tracking; the Lottka app sets only the cookies needed to keep you signed in and to protect forms.</p>
     </div>
   </footer>"""
 
 
-def page(title: str, description: str, body: str) -> str:
+def page(title: str, description: str, body: str, rel: str) -> str:
+    url = f"https://lottka.com/{rel}/"
+    full_title = html.escape(f"{title} · Lottka")
     return f"""<!doctype html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(title)} · Lottka</title>
+  <title>{full_title}</title>
   <meta name="description" content="{html.escape(description)}">
+  <link rel="canonical" href="{url}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lottka">
+  <meta property="og:title" content="{full_title}">
+  <meta property="og:description" content="{html.escape(description)}">
+  <meta property="og:url" content="{url}">
+  <meta property="og:image" content="https://lottka.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#13202e">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -204,43 +214,32 @@ def pricing() -> str:
         cards.append(
             f"""      <a class="door" href="{APP}/signup?region={key}">
         <h2>{r['label']}</h2>
-        <span class="price">{r['monthly'].split(' (')[0]}</span>
-        <p>per user a month on the Monthly Plan. Cancel any time.</p>
-        <p><strong>{r['annual'].split(' (')[0]}</strong> per user a year on the Annual Plan: two months free, paid up front.</p>
-        {'<p>In Poland: 675 zł a month, or 6,750 zł a year, per user.</p>' if key == 'eu' else ''}
+        <span class="price">{r['contract']}</span>
+        <p>per seat a month on a 12-month contract, billed monthly.</p>
+        <p><strong>{r['monthly']}</strong> per seat a month, month by month. Cancel any time.</p>
+        {'<p>In Poland: 1,040 zł on a contract, or 1,250 zł month by month, per seat a month.</p>' if key == 'eu' else ''}
         <span class="go">Sign up →</span>
       </a>"""
         )
-    addon_rows = "\n".join(
-        f"<tr><td>{c.REGIONS[k]['label']}</td><td>{html.escape(c.REGIONS[k]['addon_small'])}</td>"
-        f"<td>{html.escape(c.REGIONS[k]['addon_large'])}</td>"
-        f"<td>{html.escape(c.REGIONS[k]['addon_per_worker'])}</td></tr>"
-        for k in c.ORDER
-    )
     return f"""<article class="doc">
 <h1>One price, everything in one place</h1>
-<p>Every desk, every feature, outreach from your own mailbox, market watch and AI drafting. No setup fee, no free trial and no \"sign today\" deals: the same list price for everyone in a region, wherever they are. Running temps and contractors too? Add Temp &amp; Contract: one price for the whole agency.</p>
+<p>CRM, business development, temps, reference checks and CV formatting, with every desk and every feature. The job of five or six separate tools, on one bill. No setup fee, no free trial and no \"sign today\" deals: the same list price for everyone in a region, wherever they are.</p>
 <p class="note">Prices are set at the same value in each currency. Small differences between regions come from exchange rates, and we review them once a year.</p>
 </article>
 <div class="doors">
 {chr(10).join(cards)}
 </div>
 <article class="doc">
-<h2>Temp &amp; Contract add-on</h2>
-<p>For desks that place temps and contractors. One price for the whole agency, not per user, set by how many temps and contractors you have working that month. Billed with your plan and removable on its own. On the Annual Plan it is ten months' price, paid up front.</p>
-<div class="table"><table>
-<thead><tr><th>Region</th><th>Up to 50 temps, a month</th><th>51 to 150, a month</th><th>Each one over 150, a month</th></tr></thead>
-<tbody>
-{addon_rows}
-</tbody></table></div>
 <h2>What you're signing up to</h2>
 <ul>
-<li><strong>Monthly Plan:</strong> billed monthly, cancel any time, and it ends at the end of the month you've paid for.</li>
-<li><strong>Annual Plan:</strong> 12 months paid up front. We email you 30 days before it renews, and if a renewal catches you out, cancel within 14 days for a full refund.</li>
+<li><strong>12-month contract:</strong> commit seats for 12 months at the lower price, billed monthly. It doesn't renew for another 12 months by itself: we email you 30 days before it ends, and if you do nothing you move to month by month.</li>
+<li><strong>Extra seats:</strong> agencies grow and shrink, so seats beyond your contract are at the month-by-month price, and you can add or remove them whenever you need.</li>
+<li><strong>Month by month:</strong> no minimum term. Cancel any time, and it ends at the end of the month you've paid for.</li>
+<li><strong>Temps and contractors:</strong> included for up to 150 active at a time. Each one over is {html.escape(c.REGIONS['uk']['extra_temp'])} a month, or the same value in your currency.</li>
+<li><strong>AI and email lookups:</strong> a monthly allowance is included, and credits above it are charged at about cost.</li>
 <li><strong>First 14 days:</strong> cancel within 14 days of your first payment and we refund everything.</li>
 <li><strong>Your data is yours:</strong> export it any time, free.</li>
-<li><strong>Tax:</strong> prices exclude VAT and GST. Paddle, our reseller, adds them at checkout where they apply, and handles reverse charge for VAT-registered businesses.</li>
-<li><strong>Contact data:</strong> work-email finding uses your own Icypeas or Apollo account, billed by them.</li>
+<li><strong>Tax:</strong> prices exclude VAT and GST. Customers in Poland pay Polish VAT, EU businesses with a VAT number use the reverse charge, and we add nothing outside the EU.</li>
 </ul>
 <p>Full details: <a href="/legal/">terms and privacy for your region</a> · <a href="/legal/refunds/">refund policy</a>.</p>
 </article>"""
@@ -267,20 +266,21 @@ For every region: [Data Processing Agreement](/legal/dpa/) · [Sub-processors](/
 def write(site: Path, rel: str, title: str, description: str, body: str) -> None:
     target = site / rel / "index.html"
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(page(title, description, body), encoding="utf-8")
+    target.write_text(page(title, description, body, rel), encoding="utf-8")
 
 
 def build(site: Path) -> None:
     for key in c.ORDER:
         label = c.REGIONS[key]["label"]
-        write(site, f"{key}/terms", f"Terms of Service, {label}", f"Lottka's terms of service for customers in {label}.", doc(c.terms(key)))
-        write(site, f"{key}/privacy", f"Privacy Notice, {label}", f"How Lottka handles personal data, for {label}.", doc(c.privacy(key)))
+        place = f"the {label}" if key == "uk" else label
+        write(site, f"{key}/terms", f"Terms of Service, {label}", f"Lottka's terms of service for customers in {place}.", doc(c.terms(key)))
+        write(site, f"{key}/privacy", f"Privacy Notice, {label}", f"How Lottka handles personal data, for {place}.", doc(c.privacy(key)))
     write(site, "legal", "Terms and privacy", "Lottka's terms, privacy notices and data processing documents by region.", legal_index())
     write(site, "legal/dpa", "Data Processing Agreement", "Lottka's data processing agreement for customers.", doc(c.DPA))
     write(site, "legal/subprocessors", "Sub-processors", "The companies that process customer data for Lottka.", doc(c.SUBPROCESSORS))
     write(site, "legal/refunds", "Refund policy", "Lottka's refund policy.", doc(c.REFUNDS))
-    write(site, "security", "Security", "How Lottka protects recruitment data.", doc(c.SECURITY))
-    write(site, "pricing", "Pricing", "Lottka pricing: one price per user, every feature included.", pricing())
+    write(site, "security", "Security and data protection", "How Lottka protects recruitment data: EU hosting, encryption, strong sign-in and privacy rules applied per desk.", doc(c.SECURITY))
+    write(site, "pricing", "Recruitment CRM pricing", "Lottka pricing for recruitment agencies: one price per seat with everything included, on a 12-month contract or month by month.", pricing())
     write(site, "login", "Log in", "Log in to Lottka.", doors("login"))
     write(site, "signup", "Sign up", "Create your Lottka account.", doors("signup"))
 

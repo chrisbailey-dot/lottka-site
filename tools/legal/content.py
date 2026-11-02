@@ -1,7 +1,7 @@
 """Lottka legal pages: one shared core, with Australian, UK and EU versions."""
 
-EFFECTIVE = "1 November 2026"
-VERSION = "1.0"
+EFFECTIVE = "3 November 2026"
+VERSION = "1.1"
 
 COMPANY = {
     "name": "IHR Group sp. z o.o.",
@@ -19,53 +19,37 @@ REGIONS = {
         "label": "Australia",
         "short": "Australia",
         "currency": "AUD",
-        "monthly": "A$249",
-        "annual": "A$2,490",
-        "addon_small": "A$289",
-        "addon_small_annual": "A$2,890",
-        "addon_large": "A$479",
-        "addon_large_annual": "A$4,790",
-        "addon_per_worker": "A$1.90",
-        "tax": "GST",
+        "contract": "A$385",
+        "monthly": "A$460",
+        "extra_temp": "A$1.90",
+        "tax_line": "Prices exclude GST. We don't add GST to your invoices; you account for any GST due in Australia yourself.",
     },
     "nz": {
         "label": "New Zealand",
         "short": "New Zealand",
         "currency": "NZD",
-        "monthly": "NZ$309",
-        "annual": "NZ$3,090",
-        "addon_small": "NZ$349",
-        "addon_small_annual": "NZ$3,490",
-        "addon_large": "NZ$589",
-        "addon_large_annual": "NZ$5,890",
-        "addon_per_worker": "NZ$2.40",
-        "tax": "GST",
+        "contract": "NZ$475",
+        "monthly": "NZ$570",
+        "extra_temp": "NZ$2.40",
+        "tax_line": "Prices exclude GST. We don't add GST to your invoices; you account for any GST due in New Zealand yourself.",
     },
     "uk": {
         "label": "United Kingdom",
         "short": "the UK",
         "currency": "GBP",
-        "monthly": "£129",
-        "annual": "£1,290",
-        "addon_small": "£149",
-        "addon_small_annual": "£1,490",
-        "addon_large": "£249",
-        "addon_large_annual": "£2,490",
-        "addon_per_worker": "£1",
-        "tax": "VAT",
+        "contract": "£199",
+        "monthly": "£239",
+        "extra_temp": "£1",
+        "tax_line": "Prices exclude VAT. We don't add VAT to your invoices; you account for any VAT due in the United Kingdom yourself.",
     },
     "eu": {
         "label": "Europe",
         "short": "Europe",
         "currency": "EUR or PLN",
-        "monthly": "€155 (675 zł in Poland)",
-        "annual": "€1,550 (6,750 zł in Poland)",
-        "addon_small": "€179 (779 zł in Poland)",
-        "addon_small_annual": "€1,790 (7,790 zł in Poland)",
-        "addon_large": "€299 (1,299 zł in Poland)",
-        "addon_large_annual": "€2,990 (12,990 zł in Poland)",
-        "addon_per_worker": "€1.20 (5.20 zł in Poland)",
-        "tax": "VAT",
+        "contract": "€239",
+        "monthly": "€285",
+        "extra_temp": "€1.20",
+        "tax_line": "Prices exclude VAT. Customers in Poland pay Polish VAT. Businesses elsewhere in the EU with a valid VAT number pay no VAT to us, under the reverse charge, and account for it themselves.",
     },
 }
 
@@ -103,7 +87,7 @@ def terms(region: str) -> str:
     eu_switching = ""
     if region == "eu":
         eu_switching = f"""
-**6.6 Switching provider (customers established in the EU).** Under the EU Data Act you may switch to another provider, or leave, on up to two months' notice at any time, including during an Annual Plan. We will help you export your data in a structured, commonly used format, free of charge, and the agreement ends once the switch is complete. If you leave an Annual Plan early this way, we refund 25% of the fees for the whole months left in your plan year. The 75% we keep is our early termination charge: it reflects the revenue we planned on for your committed year, less the hosting, AI and support costs we no longer carry. We charge no switching or export fee. If you give notice within 14 days of a renewal, clause 6.3 applies instead and we refund the renewal in full.
+**6.6 Switching provider (customers established in the EU).** Under the EU Data Act you may switch to another provider, or leave, on up to two months' notice at any time, including during a 12-month contract. We will help you export your data in a structured, commonly used format, free of charge, and the agreement ends once the switch is complete. If you leave a 12-month contract early this way, you pay 75% of the fees for your committed seats for the whole months left in the contract. That is our early termination charge: it reflects the revenue we planned on for your committed year, less the hosting, AI and support costs we no longer carry. We charge no switching or export fee.
 """
 
     regional_law = ""
@@ -138,8 +122,8 @@ Version {VERSION}, effective {EFFECTIVE}. These terms apply to customers who cho
 
 ## At a glance
 
-- **Two plans.** Monthly: cancel any time. Annual: 12 months, paid up front, two months free.
-- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The Temp & Contract add-on is extra: one price for your whole agency, set by how many temps and contractors you have working (clause 5.7). The same list price applies across the region, in the region's billing currency.
+- **Two ways to pay, both billed monthly.** A 12-month contract, or month by month with no minimum term.
+- **Price:** {r['contract']} per seat a month on a 12-month contract, or {r['monthly']} per seat a month month by month. Extra seats beyond a contract are at the month-by-month price, and can be added or removed whenever you need. Everything is included: CRM, business development, temps, reference checks and CV formatting. The same list price applies across the region, in the region's billing currency. {r['tax_line']}
 - **First 14 days:** cancel within 14 days of your first payment for a full refund.
 - **Your data is yours.** Export it any time, free.
 - **Leaving early is free** if we let you down, raise the price or change these terms against you.
@@ -154,7 +138,7 @@ Lottka is for businesses only. By signing up you confirm that you are acting for
 
 ## 3. The service
 
-Lottka is an online recruitment CRM and business development platform: client and candidate records, outreach from your own mailbox, separate desks, job ads, market watch, meeting notes and AI-assisted drafting, as described at lottka.com. Temp and contract management is an optional add-on (clause 5.7).
+Lottka is an online recruitment CRM and business development platform: client and candidate records, outreach from your own mailbox, separate desks, job ads, market watch, meeting notes, AI-assisted drafting, temp and contract management (clause 5.7), reference checks and CV formatting, as described at lottka.com.
 
 To use it you need a current web browser and an internet connection. Mailbox and calendar features need a Google Workspace or Microsoft 365 account. We may improve and change features, but we will not materially reduce the core service during a period you have paid for.
 
@@ -168,41 +152,42 @@ You are responsible for your users, their sign-in details and what they do in Lo
 
 **5.1 Plans.**
 
-- **Monthly Plan:** billed each month in advance. No minimum term.
-- **Annual Plan:** a 12-month term, paid in full in advance.
+- **12-month contract:** you commit to a number of seats for 12 months, billed each month in advance.
+- **Month by month:** billed each month in advance. No minimum term.
 
-**5.2 Prices.** Plan prices are per user, and the Temp & Contract add-on is per agency (clause 5.7), as shown on our [pricing page](/pricing/) and at checkout. In {r['short']} they are charged in {r['currency']}.
+**5.2 Prices.** Prices are per seat, as shown on our [pricing page](/pricing/) and at checkout. In {r['short']} they are charged in {r['currency']}.
 
-**5.3 Paddle is our reseller.** Our order process is conducted by our online reseller and Merchant of Record, Paddle.com. Paddle takes payment, issues your invoices, adds {r['tax']} or other sales tax where it applies, and handles billing enquiries and refunds. We handle all other support. Your purchase is also subject to Paddle's buyer terms.
+**5.3 Payment and tax.** We invoice you, and take payment through our payment provider, Stripe. {r['tax_line']} Billing enquiries and refunds come to us.
 
 **5.4 Users.**
 
-- Users you add are charged pro rata to the end of the current billing period.
-- You may move a user's seat to another person at any time at no charge.
-- On the Annual Plan, the number of seats can be reduced from your next renewal. On the Monthly Plan, a reduction takes effect from your next month.
+- Seats you add are charged pro rata to the end of the current month.
+- You may move a seat to another person at any time at no charge.
+- Seats beyond a 12-month contract are extra seats at the month-by-month price. You may add or remove them at any time; a removed seat stops at the end of the month.
+- Committed seats can't be reduced during a 12-month contract, and are paid for until it ends, even if fewer people use them.
+- Month by month, a reduction takes effect from your next month.
 
 **5.5 Price changes.**
 
 - We may change prices with at least 30 days' notice.
-- A change applies from your next renewal, never part-way through a period you have paid for.
+- A change never applies part-way through a 12-month contract or a month you have paid for. Month by month, it applies from your next month. On a contract, it applies only if you sign a new one.
 - If you don't accept it, you may cancel before it takes effect.
 
 **5.6 Failed payments.** If a payment fails, we will tell you. If it isn't fixed within 14 days, we may suspend access until it is. Your data is not deleted while your access is suspended.
 
-**5.7 Temp & Contract add-on.** You may add Temp & Contract to your account. It is one price for your agency, not per user, set by your active workers: a temp or contractor with at least one shift or timesheet in Lottka in the billing month. Up to 50 active workers: {r['addon_small']} a month on the Monthly Plan or {r['addon_small_annual']} a year on the Annual Plan. 51 to 150: {r['addon_large']} a month or {r['addon_large_annual']} a year. Over 150: the 51 to 150 price plus {r['addon_per_worker']} a month for each active worker over 150. Plus {r['tax']} where it applies. If your active workers move into a different band, the new price applies from your next billing date. It is billed and renews with your plan, and clauses 5.4 to 5.6 and 6 apply to it as they do to your plan. You may remove it on its own at any time: on the Monthly Plan it stops at the end of the month you have paid for, and on the Annual Plan it comes off at your next renewal.
+**5.7 Temps and contractors.** Temp & Contract is included for up to 150 active temps and contractors: any temp or contractor with at least one shift or timesheet in Lottka in the billing month. Each one over 150 costs {r['extra_temp']} a month, on the same bill. We count them just before each billing date, and any charge applies from that date.
 
 ## 6. Term, renewal, cancelling and refunds
 
 **6.1 First 14 days.** If you cancel within 14 days of your first payment, we refund all fees paid and the agreement ends.
 
-**6.2 Monthly Plan.** Cancel at any time in Lottka (Admin, then Billing) or by email. Your plan ends at the end of the month you have paid for.
+**6.2 Month by month.** Cancel at any time in Lottka (Admin, then Billing) or by email. Your plan ends at the end of the month you have paid for.
 
-**6.3 Annual Plan.**
+**6.3 12-month contract.**
 
-- Your plan runs for 12 months and renews for a further 12 months unless you cancel before the renewal date.
-- We email the account owner at least 30 days before each renewal with the date and the price.
-- If a renewal happens and you didn't mean it to, cancel within 14 days of the renewal date and we refund the renewal in full.
-- Otherwise, cancelling an Annual Plan stops it renewing, and you keep access until the end of the year you have paid for.
+- Your contract runs for 12 months from your first payment. Unless these terms give you the right to leave (clause 6), you can't end it early: if you stop paying, we may suspend access under clause 5.6, and the fees for your committed seats stay payable until the contract ends.
+- It does not renew for another 12 months by itself. We email the account owner at least 30 days before it ends.
+- When it ends, you move to month by month at the month-by-month price, unless you sign a new contract or cancel. You can do either in Lottka in the last 30 days.
 
 **6.4 Leaving early at no cost.** You may end the agreement at any time, with a refund of the fees for the whole months left in your paid period, if:
 
@@ -211,7 +196,9 @@ You are responsible for your users, their sign-in details and what they do in Lo
 - you object to a new sub-processor and we can't resolve it (clause 6 of our Data Processing Agreement); or
 - we transfer this agreement to anyone outside our group of companies (clause 17).
 
-**6.5 Other refunds.** Except as set out in this clause 6 or where the law requires, fees already paid are not refunded. Refunds are made by Paddle to the original payment method.
+If you leave under this clause during a 12-month contract, nothing further is payable for your committed seats.
+
+**6.5 Other refunds.** Except as set out in this clause 6 or where the law requires, fees already paid are not refunded. Refunds are made to the original payment method.
 {eu_switching}
 ## 7. Your data
 
@@ -273,7 +260,7 @@ Either of us may end the agreement by notice if the other materially breaches it
 ## 16. Changes to these terms
 
 - We may update these terms, with at least 30 days' notice of material changes by email and in Lottka.
-- Changes to your detriment do not apply to you until your next renewal, unless the law requires them sooner.
+- Changes to your detriment do not apply to you until your next month or, on a 12-month contract, until it ends, unless the law requires them sooner.
 - If you don't accept a change, you may cancel before it takes effect, under clause 6.4.
 
 ## 17. General
@@ -363,7 +350,7 @@ It does not cover the contacts, candidates and emails that our customers keep in
 | What we collect | Why | Legal basis | How long |
 | --- | --- | --- | --- |
 | Account details: name, work email, agency name, password (stored only as a hash), two-step sign-in settings | To provide your account and keep it secure | Contract | While the account is open, then 30 days |
-| Billing details: subscription, plan and number of users, invoices, billing country (Paddle holds card and payment details) | To charge for Lottka and keep tax records | Contract; legal obligation | 5 years after the end of the tax year, as Polish tax law requires |
+| Billing details: subscription, plan and number of users, invoices, billing country (Stripe holds card and payment details) | To charge for Lottka and keep tax records | Contract; legal obligation | 5 years after the end of the tax year, as Polish tax law requires |
 | Security records: sign-ins, browser, IP address, audit trail of actions | To protect accounts, investigate misuse and show accountability | Legitimate interests | The audit trail is kept with the account; rate-limit counters for one day |
 | Usage: which areas of Lottka a user opened each day | To improve Lottka | Legitimate interests | While the account is open |
 | Website visits: IP address and browser, in our web host's server logs (lottka.com sets no cookies) | To deliver the website and keep it secure | Legitimate interests | As long as GitHub keeps its server logs, under its own privacy statement |
@@ -375,7 +362,7 @@ It does not cover the contacts, candidates and emails that our customers keep in
 
 - **Hetzner Online GmbH**, which hosts Lottka in Finland (EU).
 - **GitHub, Inc.**, which hosts the lottka.com website in the United States and sees the network details of its visitors.
-- **Paddle.com**, our reseller and Merchant of Record, which takes payment, issues invoices and handles tax. Paddle processes payment data as an independent controller under its own privacy notice.
+- **Stripe**, our payment provider, which takes payment on our behalf. Stripe processes payment data as an independent controller under its own privacy notice.
 - **Google**, which runs our own email.
 - **Anthropic**, our AI provider, for the AI features you use: drafting, summaries, call scripts and classification. What it receives from a connected Google account is limited as described under "Google user data" below.
 
@@ -527,22 +514,19 @@ These are not Lottka's sub-processors. The agency connects them under its own ac
 | Icypeas | Finding work email addresses | France (EU) |
 | Apollo.io | Finding work email addresses | United States |
 
-**Not a sub-processor:** Paddle.com, our reseller and Merchant of Record, processes billing and payment data as an independent controller. It does not process Customer Data.
+**Not a sub-processor:** Stripe, our payment provider, processes billing and payment data as an independent controller. It does not process Customer Data.
 """
 
 REFUNDS = f"""# Refund policy
 
-Effective {EFFECTIVE}. Lottka is sold through Paddle.com, our reseller and Merchant of Record, which processes all refunds to the original payment method.
+Effective {EFFECTIVE}. We take payment through Stripe, and refunds go back to the original payment method.
 
 - **First 14 days.** Cancel within 14 days of your first payment and we refund everything you paid.
-- **Annual renewals.** If your Annual Plan renews and you didn't mean it to, cancel within 14 days of the renewal date and we refund the renewal in full. We email you at least 30 days before each renewal.
 - **If we let you down.** If we materially breach our terms, raise the price, change the terms to your detriment, transfer your agreement outside our group, or you object to a new sub-processor and we can't resolve it, you can leave and we refund the fees for the whole months left in your paid period.
 - **Customers in the EU** switching provider under the EU Data Act: see clause 6.6 of the [European terms](/eu/terms/).
-- **Otherwise,** fees already paid are not refunded, except where the law requires. Cancelling stops the next renewal, and you keep access until the end of the period you paid for.
+- **Otherwise,** fees already paid are not refunded, except where the law requires. Month by month, cancelling stops the next payment and you keep access until the end of the month you paid for. A 12-month contract runs to its end date, and its committed seats stay payable until then (see your terms, clause 6.3).
 
-These rules apply to add-ons, such as Temp & Contract, as they do to your plan.
-
-To ask for a refund, email [{COMPANY['email']}](mailto:{COMPANY['email']}) or contact Paddle through the link on your receipt.
+To ask for a refund, email [{COMPANY['email']}](mailto:{COMPANY['email']}).
 """
 
 SECURITY = f"""# Security at Lottka
