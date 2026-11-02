@@ -139,7 +139,7 @@ Version {VERSION}, effective {EFFECTIVE}. These terms apply to customers who cho
 ## At a glance
 
 - **Two plans.** Monthly: cancel any time. Annual: 12 months, paid up front, two months free.
-- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The Temp & Contract add-on is extra: one price for your whole agency, set by how many temps and contractors you have working (clause 5.7). The same list price applies across the region, in the region's billing currency.
+- **Price:** {r['monthly']} per user a month on the Monthly Plan, or {r['annual']} per user a year on the Annual Plan, plus {r['tax']} where it applies. The Temp & Contract add-on is extra: one price for your whole agency, set by how many active temps and contractors you have (clause 5.7). The same list price applies across the region, in the region's billing currency.
 - **First 14 days:** cancel within 14 days of your first payment for a full refund.
 - **Your data is yours.** Export it any time, free.
 - **Leaving early is free** if we let you down, raise the price or change these terms against you.
@@ -189,7 +189,7 @@ You are responsible for your users, their sign-in details and what they do in Lo
 
 **5.6 Failed payments.** If a payment fails, we will tell you. If it isn't fixed within 14 days, we may suspend access until it is. Your data is not deleted while your access is suspended.
 
-**5.7 Temp & Contract add-on.** You may add Temp & Contract to your account. It is one price for your agency, not per user, set by your active workers: a temp or contractor with at least one shift or timesheet in Lottka in the billing month. Up to 50 active workers: {r['addon_small']} a month on the Monthly Plan or {r['addon_small_annual']} a year on the Annual Plan. 51 to 150: {r['addon_large']} a month or {r['addon_large_annual']} a year. Over 150: the 51 to 150 price plus {r['addon_per_worker']} a month for each active worker over 150. Plus {r['tax']} where it applies. If your active workers move into a different band, the new price applies from your next billing date. It is billed and renews with your plan, and clauses 5.4 to 5.6 and 6 apply to it as they do to your plan. You may remove it on its own at any time: on the Monthly Plan it stops at the end of the month you have paid for, and on the Annual Plan it comes off at your next renewal.
+**5.7 Temp & Contract add-on.** You may add Temp & Contract to your account. It is one price for your agency, not per user, set by your active temps and contractors: any temp or contractor with at least one shift or timesheet in Lottka in the billing month. Up to 50 active temps and contractors: {r['addon_small']} a month on the Monthly Plan or {r['addon_small_annual']} a year on the Annual Plan. 51 to 150: {r['addon_large']} a month or {r['addon_large_annual']} a year. Over 150: the 51 to 150 price plus {r['addon_per_worker']} a month for each active temp or contractor over 150. Plus {r['tax']} where it applies. If your number of active temps and contractors moves into a different band, the new price applies from your next billing date. It is billed and renews with your plan, and clauses 5.4 to 5.6 and 6 apply to it as they do to your plan. You may remove it on its own at any time: on the Monthly Plan it stops at the end of the month you have paid for, and on the Annual Plan it comes off at your next renewal.
 
 ## 6. Term, renewal, cancelling and refunds
 

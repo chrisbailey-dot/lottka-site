@@ -112,14 +112,24 @@ def footer() -> str:
   </footer>"""
 
 
-def page(title: str, description: str, body: str) -> str:
+def page(title: str, description: str, body: str, rel: str) -> str:
+    url = f"https://lottka.com/{rel}/"
+    full_title = html.escape(f"{title} · Lottka")
     return f"""<!doctype html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(title)} · Lottka</title>
+  <title>{full_title}</title>
   <meta name="description" content="{html.escape(description)}">
+  <link rel="canonical" href="{url}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lottka">
+  <meta property="og:title" content="{full_title}">
+  <meta property="og:description" content="{html.escape(description)}">
+  <meta property="og:url" content="{url}">
+  <meta property="og:image" content="https://lottka.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#13202e">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -227,9 +237,9 @@ def pricing() -> str:
 </div>
 <article class="doc">
 <h2>Temp &amp; Contract add-on</h2>
-<p>For desks that place temps and contractors. One price for the whole agency, not per user, set by how many temps and contractors you have working that month. Billed with your plan and removable on its own. On the Annual Plan it is ten months' price, paid up front.</p>
+<p>For desks that place temps and contractors. One price for the whole agency, not per user, set by how many active temps and contractors you have that month: anyone with a shift or timesheet in Lottka. Billed with your plan and removable on its own. On the Annual Plan it is ten months' price, paid up front.</p>
 <div class="table"><table>
-<thead><tr><th>Region</th><th>Up to 50 temps, a month</th><th>51 to 150, a month</th><th>Each one over 150, a month</th></tr></thead>
+<thead><tr><th>Region</th><th>Up to 50 active temps and contractors, a month</th><th>51 to 150, a month</th><th>Each one over 150, a month</th></tr></thead>
 <tbody>
 {addon_rows}
 </tbody></table></div>
@@ -267,20 +277,21 @@ For every region: [Data Processing Agreement](/legal/dpa/) · [Sub-processors](/
 def write(site: Path, rel: str, title: str, description: str, body: str) -> None:
     target = site / rel / "index.html"
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(page(title, description, body), encoding="utf-8")
+    target.write_text(page(title, description, body, rel), encoding="utf-8")
 
 
 def build(site: Path) -> None:
     for key in c.ORDER:
         label = c.REGIONS[key]["label"]
-        write(site, f"{key}/terms", f"Terms of Service, {label}", f"Lottka's terms of service for customers in {label}.", doc(c.terms(key)))
-        write(site, f"{key}/privacy", f"Privacy Notice, {label}", f"How Lottka handles personal data, for {label}.", doc(c.privacy(key)))
+        place = f"the {label}" if key == "uk" else label
+        write(site, f"{key}/terms", f"Terms of Service, {label}", f"Lottka's terms of service for customers in {place}.", doc(c.terms(key)))
+        write(site, f"{key}/privacy", f"Privacy Notice, {label}", f"How Lottka handles personal data, for {place}.", doc(c.privacy(key)))
     write(site, "legal", "Terms and privacy", "Lottka's terms, privacy notices and data processing documents by region.", legal_index())
     write(site, "legal/dpa", "Data Processing Agreement", "Lottka's data processing agreement for customers.", doc(c.DPA))
     write(site, "legal/subprocessors", "Sub-processors", "The companies that process customer data for Lottka.", doc(c.SUBPROCESSORS))
     write(site, "legal/refunds", "Refund policy", "Lottka's refund policy.", doc(c.REFUNDS))
-    write(site, "security", "Security", "How Lottka protects recruitment data.", doc(c.SECURITY))
-    write(site, "pricing", "Pricing", "Lottka pricing: one price per user, every feature included.", pricing())
+    write(site, "security", "Security and data protection", "How Lottka protects recruitment data: EU hosting, encryption, strong sign-in and privacy rules applied per desk.", doc(c.SECURITY))
+    write(site, "pricing", "Recruitment CRM pricing", "Lottka pricing for recruitment agencies: one price per user, every feature included, monthly or annual.", pricing())
     write(site, "login", "Log in", "Log in to Lottka.", doors("login"))
     write(site, "signup", "Sign up", "Create your Lottka account.", doors("signup"))
 
