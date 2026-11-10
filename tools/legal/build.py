@@ -1,4 +1,4 @@
-"""Builds lottka.com's legal, pricing and login-door pages as static HTML.
+"""Builds lottka.com's legal and pricing pages, and the login and sign-up redirects, as static HTML.
 
 Run: python3 build.py <site-dir>
 """
@@ -144,8 +144,8 @@ def page(title: str, description: str, body: str, rel: str) -> str:
         <div class="links">
           <a href="/pricing/">Pricing</a>
           <a href="/security/">Security</a>
-          <a href="/login/">Log in</a>
-          <a href="/signup/">Sign up</a>
+          <a href="{APP}/login">Log in</a>
+          <a href="{APP}/signup">Sign up</a>
         </div>
       </nav>
     </div>
@@ -170,41 +170,25 @@ def doc(text: str) -> str:
     return f'<article class="doc">\n{md(text)}\n</article>'
 
 
-def doors(kind: str) -> str:
-    verb = "Log in" if kind == "login" else "Sign up"
-    path = "login" if kind == "login" else "signup"
-    cards = []
-    blurbs = {
-        "au": "Australian Privacy Principles and Consumer Law, prices in AUD. Your data is held in the EU under APP-standard terms.",
-        "nz": "New Zealand Privacy Act 2020, prices in NZD. Your data is held in the EU under safeguards comparable to New Zealand law.",
-        "uk": "UK GDPR, prices in GBP. Your data is held in the EU, which the UK recognises as adequate.",
-        "eu": "GDPR and the EU Data Act, prices in EUR (PLN in Poland). Your data is held in the EU.",
-    }
-    for key in c.ORDER:
-        r = c.REGIONS[key]
-        cards.append(
-            f"""      <a class="door" href="{APP}/{path}?region={key}">
-        <h2>{r['label']}</h2>
-        <p>{blurbs[key]}</p>
-        <span class="go">{verb} →</span>
-      </a>"""
-        )
-    intro = (
-        "Choose where your agency is based. Your account, terms and privacy notice follow your region."
-        if kind == "signup"
-        else "Choose your region to sign in. You use the same email and password whichever door you pick."
-    )
-    legal = " · ".join(
-        f'<a href="/{k}/terms/">{c.REGIONS[k]["label"]} terms</a>' for k in c.ORDER
-    )
-    return f"""<article class="doc">
-<h1>{verb}</h1>
-<p>{intro}</p>
-</article>
-<div class="doors">
-{chr(10).join(cards)}
-</div>
-<p class="note">{legal}</p>"""
+def redirect(title: str, path: str) -> str:
+    """lottka.com/login and /signup only pass people on: signing in and signing up are
+    each one page in the app, and an agency's region is on its account."""
+    return f"""<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title} · Lottka</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{APP}/{path}">
+  <meta http-equiv="refresh" content="0; url={APP}/{path}">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <p><a href="{APP}/{path}">{title}</a></p>
+</body>
+</html>
+"""
 
 
 def pricing() -> str:
@@ -252,7 +236,7 @@ def legal_index() -> str:
     )
     text = f"""# Terms and privacy
 
-Your terms and privacy notice depend on where your agency is based: the door you sign up through.
+Your terms and privacy notice depend on the country your business is registered in.
 
 | Region | Terms | Privacy |
 | --- | --- | --- |
@@ -281,8 +265,9 @@ def build(site: Path) -> None:
     write(site, "legal/refunds", "Refund policy", "Lottka's refund policy.", doc(c.REFUNDS))
     write(site, "security", "Security and data protection", "How Lottka protects recruitment data: EU hosting, encryption, strong sign-in and privacy rules applied per desk.", doc(c.SECURITY))
     write(site, "pricing", "Recruitment CRM pricing", "Lottka pricing for recruitment agencies: one price per seat with everything included, on a 12-month contract or month by month.", pricing())
-    write(site, "login", "Log in", "Log in to Lottka.", doors("login"))
-    write(site, "signup", "Sign up", "Create your Lottka account.", doors("signup"))
+    for rel, title in (("login", "Log in"), ("signup", "Sign up")):
+        (site / rel).mkdir(parents=True, exist_ok=True)
+        (site / rel / "index.html").write_text(redirect(title, rel), encoding="utf-8")
 
 
 if __name__ == "__main__":
