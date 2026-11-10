@@ -145,7 +145,6 @@ def page(title: str, description: str, body: str, rel: str) -> str:
           <a href="/pricing/">Pricing</a>
           <a href="/security/">Security</a>
           <a href="{APP}/login">Log in</a>
-          <a href="{APP}/signup">Sign up</a>
         </div>
       </nav>
     </div>
@@ -170,9 +169,9 @@ def doc(text: str) -> str:
     return f'<article class="doc">\n{md(text)}\n</article>'
 
 
-def redirect(title: str, path: str) -> str:
-    """lottka.com/login and /signup only pass people on: signing in and signing up are
-    each one page in the app, and an agency's region is on its account."""
+def redirect(title: str, url: str) -> str:
+    """lottka.com/login passes people on to the app's one sign-in page. /signup goes to
+    Book a demo: an agency is sent the sign-up address after we have spoken."""
     return f"""<!doctype html>
 <html lang="en-GB">
 <head>
@@ -180,12 +179,12 @@ def redirect(title: str, path: str) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title} · Lottka</title>
   <meta name="robots" content="noindex">
-  <link rel="canonical" href="{APP}/{path}">
-  <meta http-equiv="refresh" content="0; url={APP}/{path}">
+  <link rel="canonical" href="{url}">
+  <meta http-equiv="refresh" content="0; url={url}">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
 </head>
 <body>
-  <p><a href="{APP}/{path}">{title}</a></p>
+  <p><a href="{url}">{title}</a></p>
 </body>
 </html>
 """
@@ -265,9 +264,12 @@ def build(site: Path) -> None:
     write(site, "legal/refunds", "Refund policy", "Lottka's refund policy.", doc(c.REFUNDS))
     write(site, "security", "Security and data protection", "How Lottka protects recruitment data: EU hosting, encryption, strong sign-in and privacy rules applied per desk.", doc(c.SECURITY))
     write(site, "pricing", "Recruitment CRM pricing", "Lottka pricing for recruitment agencies: one price per seat with everything included, on a 12-month contract or month by month.", pricing())
-    for rel, title in (("login", "Log in"), ("signup", "Sign up")):
+    for rel, title, url in (
+        ("login", "Log in", f"{APP}/login"),
+        ("signup", "Book a demo", "https://lottka.com/pricing/"),
+    ):
         (site / rel).mkdir(parents=True, exist_ok=True)
-        (site / rel / "index.html").write_text(redirect(title, rel), encoding="utf-8")
+        (site / rel / "index.html").write_text(redirect(title, url), encoding="utf-8")
 
 
 if __name__ == "__main__":
