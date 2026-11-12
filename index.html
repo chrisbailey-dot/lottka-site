@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lottka · Recruitment CRM and business development for agencies</title>
-  <meta name="description" content="Recruitment CRM with business development built in. Run several fully separate desks, each with its own inbox, data and compliance, from one login and one subscription.">
+  <title>Lottka | Recruitment CRM and ATS for agencies</title>
+  <meta name="description" content="A recruitment CRM and ATS that also finds the work: who is hiring in your market, who to call, and which candidate to send. Book a 20-minute demo.">
   <link rel="canonical" href="https://lottka.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Lottka">
-  <meta property="og:title" content="Lottka · Recruitment CRM and business development for agencies">
-  <meta property="og:description" content="Recruitment CRM with business development built in. Run several fully separate desks, each with its own inbox, data and compliance, from one login and one subscription.">
+  <meta property="og:title" content="Lottka | Recruitment CRM and ATS for agencies">
+  <meta property="og:description" content="A recruitment CRM and ATS that also finds the work: who is hiring in your market, who to call, and which candidate to send.">
   <meta property="og:url" content="https://lottka.com/">
   <meta property="og:image" content="https://lottka.com/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -19,30 +19,47 @@
     "@graph": [
       { "@type": "WebSite", "@id": "https://lottka.com/#website", "name": "Lottka", "url": "https://lottka.com/" },
       { "@type": "Organization", "@id": "https://lottka.com/#organization", "name": "Lottka", "url": "https://lottka.com/", "logo": "https://lottka.com/apple-touch-icon.png", "email": "hello@lottka.com" },
-      { "@type": "SoftwareApplication", "name": "Lottka", "url": "https://lottka.com/", "applicationCategory": "BusinessApplication", "applicationSubCategory": "Recruitment CRM", "operatingSystem": "Web", "description": "Recruitment CRM with business development built in, for recruitment agencies.", "publisher": { "@id": "https://lottka.com/#organization" } }
+      { "@type": "SoftwareApplication", "name": "Lottka", "url": "https://lottka.com/", "applicationCategory": "BusinessApplication", "applicationSubCategory": "Recruitment CRM and applicant tracking system (ATS)", "operatingSystem": "Web", "description": "Lottka is a recruitment CRM and applicant tracking system (ATS) for recruitment agencies, with business development, email outreach, CV formatting, reference checking, an AI note taker, job advertising and temp and contract management in one system.", "featureList": ["Recruitment CRM", "Applicant tracking system (ATS)", "Business development and lead finding", "Email outreach and candidate floats", "AI note taker for Zoom, Teams and Google Meet", "Reference checking", "CV formatting", "Job advertising", "Temp and contract timesheets"], "audience": { "@type": "BusinessAudience", "name": "Recruitment agencies" }, "publisher": { "@id": "https://lottka.com/#organization" } },
+      { "@type": "FAQPage", "mainEntity": [
+        { "@type": "Question", "name": "Is Lottka an ATS or a CRM?", "acceptedAnswer": { "@type": "Answer", "text": "Both. It is an applicant tracking system for your candidates and jobs and a recruitment CRM for your clients and contacts, on one record." } },
+        { "@type": "Question", "name": "What is the difference between an ATS and a recruitment CRM?", "acceptedAnswer": { "@type": "Answer", "text": "An ATS tracks candidates through jobs. A recruitment CRM tracks clients and the work you win from them. Agencies need both, and many products are called one or the other while doing much the same job. Lottka does both in one system." } },
+        { "@type": "Question", "name": "Who is Lottka for?", "acceptedAnswer": { "@type": "Answer", "text": "Recruitment agencies of one to ten people, placing permanent, temp or contract staff in any sector, in Australia, New Zealand, the UK and Europe." } },
+        { "@type": "Question", "name": "How is it different from other recruitment agency software?", "acceptedAnswer": { "@type": "Answer", "text": "Most systems track work you have already found. Lottka also finds it, by watching your market and telling you who is hiring and who to call." } },
+        { "@type": "Question", "name": "Can we bring our data from our current system?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Clients, contacts, candidates, CVs, jobs, notes and placements come across, and we help you do it." } },
+        { "@type": "Question", "name": "Does it work with Gmail and Outlook?", "acceptedAnswer": { "@type": "Answer", "text": "Gmail and Google Workspace connect in one click today, and everything sends from your own address. Outlook and Microsoft 365 are in approval with Microsoft and switch on as soon as that completes." } },
+        { "@type": "Question", "name": "Does it handle temp and contract recruitment?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Shifts, timesheets and pay files are part of the same system." } },
+        { "@type": "Question", "name": "How is Lottka priced, and how long is the contract?", "acceptedAnswer": { "@type": "Answer", "text": "Per seat, per month, on twelve months or month by month. Seats go up and down with your team. We go through the options on the demo." } }
+      ] }
     ]
   }
   </script>
-  <meta name="theme-color" content="#13202e">
+  <meta name="theme-color" content="#f7f5f0">
   <link rel="icon" href="icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     @font-face { font-family: "Inter"; font-weight: 100 900; font-display: swap; src: url("fonts/inter-latin.woff2") format("woff2"); }
     @font-face { font-family: "Sora"; font-weight: 100 800; font-display: swap; src: url("fonts/sora-latin.woff2") format("woff2"); }
     :root {
-      --navy: #13202e; --navy-2: #1b2b3d; --amber: #e2a33a; --amber-ink: #8a5a10; --slate: #3c4a5a;
-      --mist: #c9d3dd; --cream: #f5f2ec; --page: #f7f5f0; --line: #e1ddd3; --muted: #4a5868;
+      --navy: #13202e; --navy-2: #1b2b3d; --amber: #e2a33a; --amber-ink: #8a5a10; --amber-soft: #fbf0dc; --slate: #3c4a5a;
+      --mist: #c9d3dd; --cream: #efebe3; --page: #f7f5f0; --line: #e1ddd3; --line-2: #d5cfc3; --muted: #4a5868;
+      --green: #17603c; --green-soft: #e3f3ea;
       --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       --display: "Sora", var(--font);
     }
     * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body { margin: 0; background: var(--page); color: var(--navy); font: 17px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body { margin: 0; background: var(--page); color: var(--navy); font: 17px/1.55 var(--font); -webkit-font-smoothing: antialiased; }
     a { color: inherit; }
     :focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 6px; }
-    .wrap { width: min(1120px, 100%); margin: 0 auto; padding: 0 24px; }
+    .wrap { width: min(1200px, 100%); margin: 0 auto; padding: 0 32px; }
     h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.03em; line-height: 1.1; text-wrap: balance; }
+    h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 700; }
+    p { margin: 0; }
+    .kicker { margin: 0 0 14px; color: var(--amber-ink); font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+    .body p { color: var(--slate); }
+    .body p + p { margin-top: 16px; }
 
     /* Brand */
     .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -50,101 +67,158 @@
     .wordmark { font-family: var(--display); font-weight: 700; font-size: 25px; letter-spacing: -0.035em; line-height: 1; }
     .bird { stroke-width: 0.6; stroke-linejoin: round; }
     .lead { fill: var(--amber); stroke: var(--amber); }
-    .mid { fill: var(--cream); stroke: var(--cream); }
-    .rear { fill: var(--mist); stroke: var(--mist); }
+    .mid { fill: var(--navy); stroke: var(--navy); }
+    .rear { fill: var(--slate); stroke: var(--slate); }
 
     /* Buttons */
-    .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 0 26px; border-radius: 14px; font: 600 17px/1 var(--font); text-decoration: none; white-space: nowrap; transition: transform .12s ease, background .12s ease; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 30px; border-radius: 999px; font: 600 17px/1 var(--font); text-decoration: none; white-space: nowrap; transition: transform .12s ease, background .12s ease, box-shadow .12s ease; }
     .button:active { transform: scale(.98); }
-    .button-amber { background: var(--amber); color: var(--navy); box-shadow: 0 8px 24px -10px rgb(226 163 58 / 70%); }
-    .button-amber:hover { background: #ebb354; }
-    .button-ghost { color: var(--cream); box-shadow: inset 0 0 0 1.5px rgb(245 242 236 / 35%); }
-    .button-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--cream); }
     .button-navy { background: var(--navy); color: #fff; }
     .button-navy:hover { background: var(--navy-2); }
+    .button-line { background: #fff; color: var(--navy); box-shadow: inset 0 0 0 1px var(--line-2); }
+    .button-line:hover { box-shadow: inset 0 0 0 1px var(--navy); }
+    .button-amber { background: var(--amber); color: var(--navy); }
+    .button-amber:hover { background: #ebb354; }
+
+    /* Nav */
+    .nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 22px 0; }
+    .nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; font-size: 15px; font-weight: 500; }
+    .nav-links a { text-decoration: none; padding: 10px 0; }
+    .nav-links a:hover { color: var(--amber-ink); }
+    .nav-links .button { min-height: 44px; padding: 0 22px; font-size: 15px; color: #fff; }
+    .nav-links .button:hover { color: #fff; }
 
     /* Hero */
-    .hero { position: relative; overflow: hidden; color: var(--cream);
-      background: radial-gradient(60% 70% at 85% 10%, rgb(226 163 58 / 16%), transparent 70%), var(--navy); }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 0; }
-    .nav .button { min-height: 44px; padding: 0 18px; font-size: 15px; }
-    .nav .actions { align-items: center; }
-    .nav-login { color: var(--cream); font-weight: 600; font-size: 15px; text-decoration: none; padding: 10px 6px; }
-    .nav-login:hover { text-decoration: underline; text-underline-offset: 4px; }
-    .hero-body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 48px; align-items: center; padding: 56px 0 96px; }
-    .eyebrow { display: inline-block; margin: 0 0 18px; padding: 6px 12px; border-radius: 999px; background: rgb(226 163 58 / 14%); color: #f0c77e; font-size: 14px; font-weight: 600; }
-    .hero h1 { font-size: clamp(38px, 5.6vw, 62px); font-weight: 700; }
-    .hero h1 em { font-style: normal; color: var(--amber); }
-    .lede { margin: 22px 0 32px; max-width: 34rem; font-size: 19px; color: var(--mist); }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .flock { width: 100%; max-width: 420px; justify-self: center; overflow: visible; }
+    .hero { padding: 56px 0 0; text-align: center; }
+    .hero h1 { max-width: 980px; margin: 0 auto; font-size: clamp(40px, 6.2vw, 74px); font-weight: 700; line-height: 1.04; letter-spacing: -0.035em; }
+    .lede { max-width: 720px; margin: 28px auto 0; font-size: 21px; line-height: 1.5; color: var(--slate); }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 36px; }
+    .hero-note { margin-top: 18px; font-size: 15px; color: var(--muted); }
 
-    /* Sections */
-    section { padding: 96px 0; }
-    .section-head { max-width: 40rem; margin-bottom: 48px; }
-    .section-head h2 { font-size: clamp(30px, 3.6vw, 42px); font-weight: 650; }
-    .section-head p { margin: 16px 0 0; color: var(--muted); font-size: 18px; }
-    .kicker { margin: 0 0 12px; color: var(--amber-ink); font-weight: 600; font-size: 15px; }
+    /* Product panels */
+    .panel { background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 20px 50px rgb(19 32 46 / 8%); text-align: left; }
+    .shot { max-width: 1080px; margin: 56px auto 0; border-radius: 18px 18px 0 0; border-bottom: 0; box-shadow: 0 30px 80px rgb(19 32 46 / 14%); overflow: hidden; }
+    .shot-bar { display: flex; align-items: center; gap: 8px; padding: 14px 18px; background: var(--cream); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .shot-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--mist); }
+    .shot-bar span { margin-left: 8px; }
+    .shot-body { padding: 28px 30px 10px; }
+    .shot-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; margin-bottom: 18px; }
+    .shot-head strong { font-family: var(--display); font-size: 24px; letter-spacing: -0.02em; }
+    .shot-head span { font-size: 14px; color: var(--muted); }
+    .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+    .row-main { flex: 1 1 300px; min-width: 0; }
+    .row-main strong, .row-side strong { display: block; font-weight: 600; }
+    .row-main span, .row-side span { font-size: 14px; color: var(--muted); }
+    .row-side { flex: 1 1 200px; font-size: 14px; color: var(--slate); }
+    .num { flex: 0 0 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: var(--amber-soft); color: var(--amber-ink); font: 700 16px var(--display); }
+    .num.cool { background: #eef1f4; color: #2b4a6b; }
+    .pill { padding: 9px 18px; border-radius: 999px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+    .pill-navy { background: var(--navy); color: #fff; }
+    .pill-green { background: var(--green-soft); color: var(--green); }
+    .pill-amber { background: var(--amber-soft); color: var(--amber-ink); }
+    .pill-line { background: #fff; box-shadow: inset 0 0 0 1px var(--line-2); }
+    .pill.small { padding: 6px 12px; font-size: 13px; }
 
-    .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
-    .feature { padding: 28px; border-radius: 20px; background: #fff; box-shadow: 0 0 0 1px rgb(19 32 46 / 7%), 0 6px 20px -12px rgb(19 32 46 / 18%); }
-    .feature h3 { font-size: 20px; font-weight: 650; margin-bottom: 10px; }
-    .feature p { margin: 0; color: var(--muted); font-size: 16px; }
-    .icon { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-bottom: 18px; border-radius: 13px; background: var(--cream); color: var(--navy); }
-    .icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    /* Everything band */
+    .dark { background: var(--navy); color: #fff; }
+    .dark .kicker { color: var(--amber); }
+    .everything { padding: 80px 0; }
+    .everything h2 { max-width: 820px; }
+    .grid9 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 44px; background: rgb(255 255 255 / 14%); border: 1px solid rgb(255 255 255 / 14%); border-radius: 16px; overflow: hidden; }
+    .grid9 div { padding: 24px; background: var(--navy); }
+    .grid9 strong { display: block; font: 600 18px var(--display); }
+    .grid9 span { display: block; margin-top: 6px; font-size: 15px; color: var(--mist); }
 
-    .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: center; }
-    .band { background: var(--cream); }
-    .checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-    .checks li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; }
-    .checks li::before { content: ""; width: 22px; height: 22px; margin-top: 3px; border-radius: 50%;
-      background: var(--navy) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e2a33a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }
-    .checks strong { display: block; }
-    .checks span { color: var(--muted); }
-    .desks { display: grid; gap: 12px; }
-    .desk { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 16px; background: #fff; box-shadow: 0 0 0 1px rgb(19 32 46 / 7%); }
-    .desk-mark { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; color: #fff; font-weight: 700; }
-    .desk-name { font-weight: 600; }
-    .desk-meta { display: block; color: var(--muted); font-size: 14px; }
-    .desk .tag { margin-left: auto; padding: 4px 10px; border-radius: 999px; background: var(--cream); color: var(--slate); font-size: 13px; font-weight: 600; white-space: nowrap; }
+    /* Feature rows */
+    .feature { display: flex; flex-wrap: wrap; align-items: center; gap: 48px 64px; padding-top: 104px; }
+    .feature.flip { flex-wrap: wrap-reverse; }
+    .feature > .body { flex: 1 1 420px; }
+    .feature > .panel { flex: 1 1 460px; padding: 26px; }
+    .feature h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 22px; }
+    .label { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+    .panel-title { margin-top: 6px; font: 600 22px var(--display); letter-spacing: -0.02em; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; margin-top: 18px; }
+    .stats div { padding: 14px; border-radius: 12px; background: var(--page); }
+    .stats strong { display: block; font: 700 26px var(--display); }
+    .stats span { font-size: 13px; color: var(--muted); }
+    .card-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 18px; padding: 16px; border: 1px solid var(--line); border-radius: 12px; }
+    .card-row strong { display: block; font-weight: 600; }
+    .card-row span.sub { font-size: 14px; color: var(--muted); }
+    .people { padding: 10px 22px !important; }
+    .people .row:first-child { border-top: 0; }
+    .people .row-main { flex: 1 1 170px; }
+    .avatar { flex: 0 0 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; border: 2px solid #1f7a4d; font-size: 14px; font-weight: 600; }
+    .avatar.warm { border-color: #b07514; }
+    .mail-to { font-size: 14px; color: var(--muted); }
+    .mail-subject { margin-top: 6px; font-weight: 600; }
+    .mail-body { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--slate); font-size: 16px; }
+    .mail-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 18px; }
+    .file { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--page); font-size: 14px; }
+    .file svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-    .trust { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
-    .trust div { padding: 22px; border-radius: 18px; background: #fff; box-shadow: 0 0 0 1px rgb(19 32 46 / 7%); }
-    .trust strong { display: block; font-family: var(--display); font-size: 18px; font-weight: 650; margin-bottom: 6px; }
-    .trust span { color: var(--muted); font-size: 15px; }
+    /* Cards */
+    .rest { padding-top: 112px; }
+    .rest h2 { max-width: 760px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 44px; }
+    .card { padding: 30px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+    .card svg { width: 28px; height: 28px; fill: none; stroke: var(--amber-ink); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .card h3 { margin-top: 18px; font-size: 21px; font-weight: 650; letter-spacing: -0.02em; }
+    .card p { margin-top: 10px; color: var(--slate); font-size: 16px; }
+    .also { margin-top: 28px; color: var(--muted); font-size: 16px; }
 
-    .cta { color: var(--cream); background: radial-gradient(60% 90% at 50% 0%, rgb(226 163 58 / 18%), transparent 70%), var(--navy); text-align: center; }
-    .cta h2 { font-size: clamp(30px, 4vw, 46px); font-weight: 650; }
-    .cta p { margin: 16px auto 32px; max-width: 34rem; color: var(--mist); font-size: 18px; }
-    .cta .flock-small { width: 72px; margin-bottom: 24px; }
+    .who { display: flex; flex-wrap: wrap; gap: 32px 64px; padding-top: 112px; }
+    .who > div { flex: 1 1 420px; }
 
-    footer { padding: 32px 0 40px; color: var(--muted); font-size: 14px; }
-    footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; }
+    .pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; padding-top: 112px; }
+    .pair > div { padding: clamp(28px, 4vw, 48px); border: 1px solid var(--line); border-radius: 24px; background: #fff; }
+    .pair > div.warm { background: var(--amber-soft); border-color: #ecd9b0; }
+    .pair h2 { font-size: clamp(26px, 3vw, 34px); margin-bottom: 18px; }
+    .pair p { color: var(--slate); }
+
+    .story { margin-top: 112px; }
+    .story-box { display: flex; flex-wrap: wrap; gap: 32px 48px; padding: clamp(32px, 6vw, 72px); border-radius: 24px; background: var(--cream); }
+    .story-box > div { flex: 1 1 380px; }
+    .story-end { margin-top: 24px !important; font-weight: 600; color: var(--navy) !important; }
+
+    .cta { margin-top: 112px; padding: 96px 0; text-align: center; }
+    .cta h2 { max-width: 760px; margin: 0 auto; font-size: clamp(34px, 5vw, 54px); line-height: 1.06; }
+    .cta p { max-width: 620px; margin: 22px auto 34px; font-size: 19px; color: var(--mist); }
+
+    .faq { max-width: 860px; padding-top: 104px; }
+    .faq dl { margin: 32px 0 0; border-bottom: 1px solid var(--line-2); }
+    .faq dt { padding-top: 24px; border-top: 1px solid var(--line-2); font-size: 19px; font-weight: 600; }
+    .faq dd { margin: 8px 0 24px; color: var(--slate); }
+
+    footer { padding: 72px 0 48px; color: var(--muted); font-size: 14px; }
+    .foot-row { display: flex; flex-wrap: wrap; gap: 16px 24px; justify-content: space-between; align-items: center; }
     footer .logo svg { width: 34px; }
     footer .wordmark { font-size: 19px; color: var(--navy); }
-    footer .mid { fill: var(--navy); stroke: var(--navy); }
-    footer .rear { fill: var(--slate); stroke: var(--slate); }
-    footer .row { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; align-items: center; width: 100%; }
-    footer .legal { display: flex; flex-wrap: wrap; gap: 6px 16px; }
-    footer .legal a { text-decoration: none; }
-    footer .legal a:hover { text-decoration: underline; }
-    footer .company { margin: 14px 0 0; font-size: 13px; line-height: 1.5; }
-    footer .wrap { display: block; }
+    .legal { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+    .legal a { text-decoration: none; }
+    .legal a:hover { text-decoration: underline; }
+    .foot-line { margin-top: 14px; }
+    .company { margin-top: 14px; font-size: 13px; line-height: 1.5; }
 
-    @media (max-width: 900px) {
-      .hero-body, .split { grid-template-columns: minmax(0, 1fr); }
-      .flock { max-width: 280px; order: -1; justify-self: start; }
-      .features { grid-template-columns: minmax(0, 1fr); }
-      .trust { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      section { padding: 72px 0; }
-      .hero-body { padding: 24px 0 72px; gap: 32px; }
+    @media (max-width: 760px) {
+      .wrap { padding: 0 20px; }
+      .nav-links { gap: 4px 18px; }
+      .nav-links .hide-s { display: none; }
+      .hero { padding-top: 28px; }
+      .lede { font-size: 19px; }
+      .shot-body { padding: 22px 18px 6px; }
+      .grid9 { grid-template-columns: 1fr; }
+      .row-main, .people .row-main { flex: 1 1 calc(100% - 62px); }
+      .row-side { flex: 1 1 0; margin-left: 60px; }
+      .people .row .pill:first-of-type { margin-left: 58px; }
+      .stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .stats div { padding: 12px 10px; }
+      .feature > .panel { padding: 20px; }
+      .feature { padding-top: 80px; }
+      .rest, .who, .pair { padding-top: 80px; }
+      .story, .cta { margin-top: 80px; }
+      .cta { padding: 72px 0; }
     }
-    @media (max-width: 520px) {
-      .trust { grid-template-columns: minmax(0, 1fr); }
-      .nav .button-ghost { display: none; }
-      .desk .tag { display: none; }
-    }
-    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } html { scroll-behavior: auto; } }
   </style>
 </head>
 <body>
@@ -161,126 +235,224 @@
     </defs>
   </svg>
 
-  <header class="hero">
-    <div class="wrap">
-      <nav class="nav" aria-label="Main">
-        <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
-        <div class="actions">
-          <a class="nav-login" href="/pricing/">Pricing</a>
-          <a class="nav-login" href="https://app.lottka.com/login">Log in</a>
-          <a class="button button-ghost" href="#features">See what it does</a>
-          <a class="button button-amber" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
-        </div>
-      </nav>
-      <div class="hero-body">
-        <div>
-          <p class="eyebrow">Now open to agencies in Australia, New Zealand, the UK and Europe</p>
-          <h1>The CRM that <em>finds the work</em> as well as tracking it.</h1>
-          <p class="lede">Lottka is a recruitment CRM with business development built in. Run several fully separate desks, each with its own inbox, data and compliance, from one login and one subscription.</p>
-          <div class="actions">
-            <a class="button button-amber" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
-            <a class="button button-ghost" href="#features">See what it does</a>
-          </div>
-        </div>
-        <svg class="flock" viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg>
+  <header class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
+      <div class="nav-links">
+        <a class="hide-s" href="#features">Features</a>
+        <a class="hide-s" href="#everything">Everything included</a>
+        <a class="hide-s" href="#who">Who it's for</a>
+        <a class="hide-s" href="#questions">Questions</a>
+        <a href="https://app.lottka.com/login">Sign in</a>
+        <a class="button button-navy" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main>
-    <section id="features">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">What it does</p>
-          <h2>Everything a desk needs, from the first lead to the placement.</h2>
-          <p>Built by a recruiter with twenty years on the desk, for consultants who would rather be on the phone than in a spreadsheet.</p>
-        </div>
-        <div class="features">
-          <article class="feature">
-            <span class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
-            <h3>Find leads</h3>
-            <p>Watches careers pages, job boards and industry news, then ranks the employers under hiring pressure, with the reasons shown.</p>
-          </article>
-          <article class="feature">
-            <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span>
-            <h3>Outreach in your own voice</h3>
-            <p>Drafts emails that sound like you, from your own mailbox. Nothing goes out until you approve it.</p>
-          </article>
-          <article class="feature">
-            <span class="icon"><svg viewBox="0 0 24 24"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21v-6h6v6"/></svg></span>
-            <h3>A proper CRM</h3>
-            <p>Groups, sites and contacts, with terms that carry down from head office. Clients and candidates kept apart, the way they should be.</p>
-          </article>
-          <article class="feature">
-            <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span>
-            <h3>Candidates and jobs</h3>
-            <p>Shortlists, send-outs and placements, with matching openings nearby whenever someone new applies.</p>
-          </article>
-          <article class="feature">
-            <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><path d="M5 21h14"/></svg></span>
-            <h3>Job ads everywhere</h3>
-            <p>Your own jobs page, Google for Jobs, job board feeds and a jobs list for your website, with applications landing straight on the shortlist.</p>
-          </article>
-          <article class="feature">
-            <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></span>
-            <h3>Win it retained</h3>
-            <p>Spots the vacancies worth pitching as retained, then coaches you through the call with a script built from the role.</p>
-          </article>
+    <section class="hero wrap">
+      <p class="kicker">Recruitment CRM and ATS for agencies</p>
+      <h1>The recruitment CRM and ATS that finds you the work.</h1>
+      <p class="lede">Lottka is a recruitment CRM and applicant tracking system that also does your business development. Each morning it shows you who is hiring in your market, who to ring about it, and which of your candidates to send.</p>
+      <div class="actions">
+        <a class="button button-navy" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a 20-minute demo</a>
+        <a class="button button-line" href="#features">See what it does</a>
+      </div>
+      <p class="hero-note">We set up your sector before the call, so you see real employers hiring in your own market.</p>
+
+      <div class="panel shot" role="img" aria-label="Lottka's Today screen, listing employers to call this morning">
+        <div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i><span>app.lottka.com · Today</span></div>
+        <div class="shot-body" aria-hidden="true">
+          <div class="shot-head"><strong>Who to call this morning</strong><span>Theatre nursing · Melbourne · 5 of 43 employers hiring</span></div>
+          <div class="row"><span class="num">63</span><div class="row-main"><strong>Example Private Hospital</strong><span>Scrub Nurse open 63 days · advertised three times · no agency on it</span></div><div class="row-side"><strong>Nurse Unit Manager, Theatres</strong><span>Work email found</span></div><span class="pill pill-navy">Call</span></div>
+          <div class="row"><span class="num">41</span><div class="row-main"><strong>Sample Day Surgery</strong><span>Anaesthetic Nurse open 41 days · 2 of your candidates fit</span></div><div class="row-side"><strong>Director of Nursing</strong><span>Work email found</span></div><span class="pill pill-green">Float 2</span></div>
+          <div class="row"><span class="num cool">12</span><div class="row-main"><strong>Placeholder Health Group</strong><span>4 new theatre roles this week across 2 sites</span></div><div class="row-side"><strong>Talent Acquisition Lead</strong><span>Work email found</span></div><span class="pill pill-line">Email</span></div>
         </div>
       </div>
     </section>
 
-    <section class="band">
-      <div class="wrap split">
+    <section class="dark everything" id="everything">
+      <div class="wrap">
+        <p class="kicker">Everything included</p>
+        <h2>One system for the whole agency. One subscription where you now pay for six.</h2>
+        <div class="grid9">
+          <div><strong>Recruitment CRM</strong><span>Clients, sites, contacts and terms.</span></div>
+          <div><strong>Applicant tracking</strong><span>Candidates, jobs, shortlists, placements.</span></div>
+          <div><strong>Business development</strong><span>Who is hiring, and who to call.</span></div>
+          <div><strong>Email outreach</strong><span>Campaigns and floats in your own style.</span></div>
+          <div><strong>AI note taker</strong><span>Zoom, Teams and Google Meet.</span></div>
+          <div><strong>Reference checking</strong><span>Sent and filed on the record.</span></div>
+          <div><strong>CV formatting</strong><span>Your branding, one click.</span></div>
+          <div><strong>Job advertising</strong><span>Your site, Google for Jobs, job boards.</span></div>
+          <div><strong>Temp and contract</strong><span>Shifts, timesheets and pay files.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap" id="features">
+      <section class="feature">
+        <div class="body">
+          <p class="kicker">Business development</p>
+          <h2>Start the day knowing who to call.</h2>
+          <p>Lottka reads the careers pages, job boards and hiring news in your market around the clock. Each morning the employers under pressure are at the top of your screen: the role open nine weeks, the hospital advertising the same post for the third time.</p>
+          <p>For each one you get the reason, the person who owns the vacancy, and their work email. You pick up the phone.</p>
+        </div>
+        <div class="panel" role="img" aria-label="A vacancy in Lottka, open 63 days, with the hiring manager to call">
+          <div aria-hidden="true">
+            <div class="label">Example Private Hospital</div>
+            <div class="panel-title">Scrub Nurse, Theatres</div>
+            <div class="stats"><div><strong>63</strong><span>days open</span></div><div><strong>3</strong><span>times advertised</span></div><div><strong>0</strong><span>agencies on it</span></div></div>
+            <div class="card-row"><div><strong>Nurse Unit Manager, Theatres</strong><span class="sub">Owns this vacancy · work email found</span></div><span class="pill pill-navy">Call</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="feature flip">
+        <div class="panel people" role="img" aria-label="Lottka's candidate list, showing who is ready to place">
+          <div aria-hidden="true">
+            <div class="row"><span class="avatar">SN</span><div class="row-main"><strong>Scrub Nurse · 6 years</strong><span>Wants Melbourne · available in 4 weeks</span></div><span class="pill pill-green small">Ready to place</span><span class="pill pill-navy small">Float</span></div>
+            <div class="row"><span class="avatar">AN</span><div class="row-main"><strong>Anaesthetic Nurse · 9 years</strong><span>Wants Gold Coast · available now</span></div><span class="pill pill-green small">Ready to place</span><span class="pill pill-navy small">Float</span></div>
+            <div class="row"><span class="avatar warm">RN</span><div class="row-main"><strong>Recovery Nurse · 3 years</strong><span>Wants Perth · registration in progress</span></div><span class="pill pill-amber small">Nearly ready</span></div>
+          </div>
+        </div>
+        <div class="body">
+          <p class="kicker">CRM and applicant tracking</p>
+          <h2>A recruitment CRM and an applicant tracking system, on one record.</h2>
+          <p>Clients and contacts on one side, candidates and CVs on the other, jobs and placements between them. A new candidate lands and Lottka tells you which open jobs suit them. A new job lands and it tells you who to send.</p>
+          <p>If you have used any ATS, you will find your way round this one in an afternoon.</p>
+        </div>
+      </section>
+
+      <section class="feature">
+        <div class="body">
+          <p class="kicker">Outreach and floats</p>
+          <h2>It writes the way you write.</h2>
+          <p>Lottka learns your style from your own sent mail. Then it drafts your client emails and candidate floats in that style, takes the facts from the CV, and attaches the formatted CV, blind or named.</p>
+          <p>Three clicks from a candidate's page to a float in a hiring manager's inbox, sent from your own address.</p>
+        </div>
+        <div class="panel" role="img" aria-label="A candidate float drafted in Lottka with a blind CV attached">
+          <div aria-hidden="true">
+            <div class="mail-to">To: Nurse Unit Manager, Theatres</div>
+            <div class="mail-subject">Scrub nurse, six years, moving to Melbourne in March</div>
+            <div class="mail-body">Hi [first name],<br><br>I saw your scrub role is still open. I am working with a scrub nurse with six years in orthopaedic and general theatres who is relocating to Melbourne in March.<br><br>Her CV is attached. Worth a quick call this week?</div>
+            <div class="mail-foot"><span class="file"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>Blind CV.pdf</span><span class="pill pill-navy">Send</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rest">
+        <h2>And the jobs you pay other software to do.</h2>
+        <div class="cards">
+          <article class="card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg>
+            <h3>AI note taker</h3>
+            <p>Lottka joins your Zoom, Teams and Google Meet calls and writes them up. Notes and next steps land on the right client or candidate.</p>
+          </article>
+          <article class="card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12l2 2 4-4"/><path d="M12 3l7 3v6c0 4.500-3 7.500-7 9-4-1.500-7-4.500-7-9V6z"/></svg>
+            <h3>Reference checking</h3>
+            <p>Send the request from the candidate's page. The referee answers online, and the report is filed on the record.</p>
+          </article>
+          <article class="card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+            <h3>CV formatting</h3>
+            <p>Drop in a CV and get it back in your agency's branding, with a blind version when you need one. Edit it on screen, then send as a PDF.</p>
+          </article>
+          <article class="card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l16-6v14L3 13z"/><path d="M7 14v4a2 2 0 0 0 4 0v-2"/></svg>
+            <h3>Job advertising</h3>
+            <p>Post a job once. It goes to your own jobs page, Google for Jobs and your job board feeds, and applications arrive on the shortlist.</p>
+          </article>
+          <article class="card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <h3>Temp and contract</h3>
+            <p>Shifts, bookings and timesheets beside your permanent desk. Workers log their own hours from a link, and the pay and bill files line up.</p>
+          </article>
+          <article class="card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.600 5.300 5.900.900-4.200 4.100 1 5.800L12 16.400 6.700 19.100l1-5.800L3.500 9.200l5.900-.900z"/></svg>
+            <h3>Retained pitches</h3>
+            <p>Lottka spots the vacancies worth pitching as retained and writes you a call script built from the role and its history.</p>
+          </article>
+        </div>
+        <p class="also">Also in the box: a Chrome extension that saves anyone from LinkedIn or any web page, candidate campaigns, placement invoices, and English and Polish throughout.</p>
+      </section>
+
+      <section class="who body" id="who">
         <div>
-          <p class="kicker">Several desks, one login</p>
-          <h2 style="font-size:clamp(30px,3.6vw,42px);font-weight:650">Run every market as its own business.</h2>
-          <p style="color:var(--muted);font-size:18px;margin:16px 0 28px">Each desk has its own Google mailbox and calendar, its own clients and candidates, and its own privacy rules for the country it works in. Nothing crosses between them.</p>
-          <ul class="checks">
-            <li><div><strong>Today, sorted for you</strong><span>Open the app and see your next three things, in order.</span></div></li>
-            <li><div><strong>Meeting notes written for you</strong><span>Zoom, Teams and Google Meet transcripts become notes and tasks on the right record.</span></div></li>
-            <li><div><strong>Save from any page</strong><span>One click in Chrome adds the person you are viewing as a contact or a candidate.</span></div></li>
-          </ul>
+          <p class="kicker">Who it's for</p>
+          <h2>Recruitment software for small agencies that intend to stay independent.</h2>
         </div>
-        <div class="desks" aria-label="Example desks">
-          <div class="desk"><span class="desk-mark" style="background:#6d42d6">N</span><div><span class="desk-name">Nursing · Australia</span><span class="desk-meta">Own inbox · Privacy Act and Spam Act</span></div><span class="tag">Desk 1</span></div>
-          <div class="desk"><span class="desk-mark" style="background:#0f8a6c">L</span><div><span class="desk-name">Life Sciences · Ireland &amp; Benelux</span><span class="desk-meta">Own inbox · GDPR</span></div><span class="tag">Desk 2</span></div>
-          <div class="desk"><span class="desk-mark" style="background:#b4530f">E</span><div><span class="desk-name">Engineering · United Kingdom</span><span class="desk-meta">Own inbox · UK GDPR and PECR</span></div><span class="tag">Desk 3</span></div>
+        <div>
+          <p>Lottka is made for agencies of one to ten people: the owner who still bills, the team that would rather be on the phone than in a system. Permanent, temp and contract, in any sector.</p>
+          <p>Work more than one sector? Each desk keeps its own inbox, clients and candidates under the same login, so nursing never sees engineering.</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <p class="kicker">Built to be trusted</p>
-          <h2>Your data, handled properly.</h2>
+      <section class="pair">
+        <div>
+          <p class="kicker">Switching</p>
+          <h2>Move in without losing a record.</h2>
+          <p>Bring your clients, contacts, candidates, CVs, jobs, notes and placements from the ATS or CRM you use now. Export it, drop it in, and Lottka files it in the right place. We help with the first import.</p>
         </div>
-        <div class="trust">
-          <div><strong>Hosted in the EU</strong><span>Servers in Finland, with daily backups.</span></div>
-          <div><strong>Privacy by country</strong><span>GDPR, UK GDPR, Australia, New Zealand and US rules applied per desk.</span></div>
-          <div><strong>You approve every email</strong><span>Nothing is sent automatically. Work emails only for client contacts.</span></div>
-          <div><strong>Made in Poland</strong><span>Designed and built in Europe for agencies everywhere.</span></div>
+        <div class="warm">
+          <p class="kicker">Value</p>
+          <h2>One extra placement pays for it.</h2>
+          <p>Lottka is priced per seat, per month. Start with the CRM and ATS, then add business development, outreach or temp when you want them. Seats go up and down with your team.</p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="cta" id="demo">
+      <section class="story">
+        <div class="story-box body">
+          <div>
+            <p class="kicker">Where it comes from</p>
+            <h2>21 years of agency recruitment went into it.</h2>
+          </div>
+          <div>
+            <p>Lottka comes out of a working recruitment agency. Every screen follows how a desk actually runs: what a recruiter needs to see first thing, which calls matter today, and what usually gets forgotten by Friday.</p>
+            <p>That agency runs on Lottka every day, across permanent and contract desks in more than one sector. It earns its place there before it is offered to anyone else.</p>
+            <p>Lottka is family-owned, with no investors to answer to. Ring us and you speak to a recruiter.</p>
+            <p class="story-end">21 years in recruitment. Still on the phone.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="dark cta" id="demo">
       <div class="wrap">
-        <svg class="flock-small" viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg>
-        <h2>See Lottka on your own desk.</h2>
-        <p>A 30-minute walk-through with the founder, using your markets and your roles.</p>
+        <h2>See your own market in it.</h2>
+        <p>Twenty minutes on a video call. Tell us your sector beforehand and it will be running when you join, with real employers and real vacancies.</p>
         <a class="button button-amber" href="mailto:hello@lottka.com?subject=Lottka%20demo">Book a demo</a>
       </div>
+    </section>
+
+    <section class="wrap faq" id="questions">
+      <h2>Questions agencies ask us</h2>
+      <dl>
+        <dt>Is Lottka an ATS or a CRM?</dt>
+        <dd>Both. It is an applicant tracking system for your candidates and jobs and a recruitment CRM for your clients and contacts, on one record.</dd>
+        <dt>What is the difference between an ATS and a recruitment CRM?</dt>
+        <dd>An ATS tracks candidates through jobs. A recruitment CRM tracks clients and the work you win from them. Agencies need both, and many products are called one or the other while doing much the same job. Lottka does both in one system.</dd>
+        <dt>Who is Lottka for?</dt>
+        <dd>Recruitment agencies of one to ten people, placing permanent, temp or contract staff in any sector, in Australia, New Zealand, the UK and Europe.</dd>
+        <dt>How is it different from other recruitment agency software?</dt>
+        <dd>Most systems track work you have already found. Lottka also finds it, by watching your market and telling you who is hiring and who to call.</dd>
+        <dt>Can we bring our data from our current system?</dt>
+        <dd>Yes. Clients, contacts, candidates, CVs, jobs, notes and placements come across, and we help you do it.</dd>
+        <dt>Does it work with Gmail and Outlook?</dt>
+        <dd>Gmail and Google Workspace connect in one click today, and everything sends from your own address. Outlook and Microsoft 365 are in approval with Microsoft and switch on as soon as that completes.</dd>
+        <dt>Does it handle temp and contract recruitment?</dt>
+        <dd>Yes. Shifts, timesheets and pay files are part of the same system.</dd>
+        <dt>How is Lottka priced, and how long is the contract?</dt>
+        <dd>Per seat, per month, on twelve months or month by month. Seats go up and down with your team. We go through the options on the demo.</dd>
+      </dl>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <div class="row">
+      <div class="foot-row">
         <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
         <nav class="legal" aria-label="Legal">
-          <a href="/pricing/">Pricing</a>
           <a href="/legal/">Terms and privacy</a>
           <a href="/legal/refunds/">Refunds</a>
           <a href="/legal/dpa/">Data processing</a>
@@ -289,6 +461,7 @@
           <a href="mailto:hello@lottka.com">hello@lottka.com</a>
         </nav>
       </div>
+      <p class="foot-line">Recruitment CRM and ATS for agencies in Australia, New Zealand, the UK and Europe.</p>
       <p class="company">Lottka is provided by IHR Group sp. z o.o., ul. Długa 61, 87-800 Włocławek, Poland. KRS 0000788567, District Court in Toruń, 7th Commercial Division of the National Court Register. NIP 8883141067, REGON 383459865, share capital PLN 5,000. Payments are processed by Stripe. lottka.com uses no cookies and no tracking; the Lottka app sets only the cookies needed to keep you signed in and to protect forms.</p>
     </div>
   </footer>

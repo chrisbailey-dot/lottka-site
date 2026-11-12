@@ -98,7 +98,7 @@ def footer() -> str:
       <div class="row">
         <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
         <nav class="legal" aria-label="Legal">
-          <a href="/pricing/">Pricing</a>
+          <a href="/pricing/">Book a demo</a>
           <a href="/legal/">Terms and privacy</a>
           <a href="/legal/refunds/">Refunds</a>
           <a href="/legal/dpa/">Data processing</a>
@@ -142,7 +142,7 @@ def page(title: str, description: str, body: str, rel: str) -> str:
       <nav class="nav" aria-label="Main">
         <a class="logo" href="/" aria-label="Lottka home"><svg viewBox="12 10 96 52" aria-hidden="true"><use href="#flock"/></svg><span class="wordmark">lottka</span></a>
         <div class="links">
-          <a href="/pricing/">Pricing</a>
+          <a href="/pricing/">Book a demo</a>
           <a href="/security/">Security</a>
           <a href="{APP}/login">Log in</a>
         </div>
@@ -263,7 +263,7 @@ def build(site: Path) -> None:
     write(site, "legal/subprocessors", "Sub-processors", "The companies that process customer data for Lottka.", doc(c.SUBPROCESSORS))
     write(site, "legal/refunds", "Refund policy", "Lottka's refund policy.", doc(c.REFUNDS))
     write(site, "security", "Security and data protection", "How Lottka protects recruitment data: EU hosting, encryption, strong sign-in and privacy rules applied per desk.", doc(c.SECURITY))
-    write(site, "pricing", "Recruitment CRM pricing", "Lottka pricing for recruitment agencies: one price per seat with everything included, on a 12-month contract or month by month.", pricing())
+    # pricing/ is the Book a demo page and is edited by hand: prices are not published.
     for rel, title, url in (
         ("login", "Log in", f"{APP}/login"),
         ("signup", "Book a demo", "https://lottka.com/pricing/"),

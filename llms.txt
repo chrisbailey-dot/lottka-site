@@ -1,0 +1,34 @@
+# Lottka
+
+> Lottka is a recruitment CRM and applicant tracking system (ATS) for recruitment agencies. It also does business development: each morning it shows an agency which employers in its market are hiring, who to call, and which of its candidates to send.
+
+Lottka is made for recruitment agencies of one to ten people placing permanent, temp or contract staff in any sector. It is available to agencies in Australia, New Zealand, the UK and Europe, in English and Polish.
+
+## What it includes
+
+- Recruitment CRM: clients, sites, contacts and terms
+- Applicant tracking system (ATS): candidates, CVs, jobs, shortlists and placements
+- Business development: employers that are hiring, how long roles have been open, and the hiring manager's work email
+- Email outreach and candidate floats written in the recruiter's own style, sent from their own mailbox
+- AI note taker for Zoom, Microsoft Teams and Google Meet
+- Reference checking
+- CV formatting in the agency's branding, with blind versions
+- Job advertising to the agency's own jobs page, Google for Jobs and job board feeds
+- Temp and contract: shifts, bookings, timesheets and pay files
+- Chrome extension that saves people from LinkedIn or any web page
+
+## Common questions
+
+- Is Lottka an ATS or a CRM? Both, on one record.
+- Email: Gmail and Google Workspace connect today. Outlook and Microsoft 365 are in approval with Microsoft.
+- Pricing: per seat, per month, on twelve months or month by month. Plans are agreed after a demo.
+- Demo: twenty minutes on a video call, with the agency's own sector set up beforehand.
+
+## Pages
+
+- [Home](https://lottka.com/): what Lottka does
+- [Book a demo](https://lottka.com/pricing/)
+- [Security and data protection](https://lottka.com/security/)
+- [Terms and privacy](https://lottka.com/legal/)
+
+Contact: hello@lottka.com
