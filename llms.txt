@@ -10,7 +10,7 @@ Lottka is made for recruitment agencies of one to ten people placing permanent, 
 - Applicant tracking system (ATS): candidates, CVs, jobs, shortlists and placements
 - Business development: employers that are hiring, how long roles have been open, and the hiring manager's work email
 - Email outreach and candidate floats written in the recruiter's own style, sent from their own mailbox
-- AI note taker for Zoom, Microsoft Teams and Google Meet
+- Meeting notes written up from the call
 - Reference checking
 - CV formatting in the agency's branding, with blind versions
 - Job advertising to the agency's own jobs page, Google for Jobs and job board feeds
@@ -20,14 +20,13 @@ Lottka is made for recruitment agencies of one to ten people placing permanent, 
 ## Common questions
 
 - Is Lottka an ATS or a CRM? Both, on one record.
-- Email: Gmail and Google Workspace connect today. Outlook and Microsoft 365 are in approval with Microsoft.
-- Pricing: per seat, per month, on twelve months or month by month. Plans are agreed after a demo.
+- Pricing: from £49 a seat a month, on twelve months or month by month.
 - Demo: twenty minutes on a video call, with the agency's own sector set up beforehand.
 
 ## Pages
 
 - [Home](https://lottka.com/): what Lottka does
-- [Book a demo](https://lottka.com/pricing/)
+- [Pricing and demo](https://lottka.com/pricing/)
 - [Security and data protection](https://lottka.com/security/)
 - [Terms and privacy](https://lottka.com/legal/)
 
