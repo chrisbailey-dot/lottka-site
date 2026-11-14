@@ -2,7 +2,7 @@
 
 > Lottka is a recruitment CRM and applicant tracking system (ATS) for recruitment agencies. It also does business development: each morning it shows an agency which employers in its market are hiring, who to call, and which of its candidates to send.
 
-Lottka is made for recruitment agencies of one to ten people placing permanent, temp or contract staff in any sector. It is available to agencies in Australia, New Zealand, the UK and Europe, in English and Polish.
+Lottka is made for recruitment agencies placing permanent, temp or contract staff in any sector, in English and Polish.
 
 ## What it includes
 
