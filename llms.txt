@@ -26,6 +26,7 @@ Lottka is made for recruitment agencies placing permanent, temp or contract staf
 ## Pages
 
 - [Home](https://lottka.com/): what Lottka does
+- [Time and money calculator](https://lottka.com/roi/): hours a team gets back and what they are worth
 - [Pricing and demo](https://lottka.com/pricing/)
 - [Security and data protection](https://lottka.com/security/)
 - [Terms and privacy](https://lottka.com/legal/)
