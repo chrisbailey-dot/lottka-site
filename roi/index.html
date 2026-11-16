@@ -158,7 +158,7 @@
           <h2 class="gap">Money</h2>
           <div class="field first"><label for="cost">Cost of one recruiter hour<small>Salary plus overheads</small></label><input id="cost" type="number" min="0" step="1" value="25"></div>
           <div class="field"><label for="fee">Average fee per placement</label><input id="fee" type="number" min="0" step="100" value="6000"></div>
-          <div class="field"><label for="seat">Lottka cost per recruiter, per month<small>Seats start from £49. Other currencies are approximate.</small></label><input id="seat" type="number" min="0" step="1" value="49"></div>
+          <div class="field"><label for="seat">Lottka cost per recruiter, per month<small>Seats start from £49, or the equivalent in your currency.</small></label><input id="seat" type="number" min="0" step="1" value="49"></div>
           <div class="slide">
             <div class="top"><label for="cut">Share of that time Lottka removes</label><output id="cutOut" for="cut">50%</output></div>
             <input id="cut" type="range" min="10" max="90" step="5" value="50">
@@ -187,7 +187,7 @@
     var $ = function (id) { return document.getElementById(id); };
     var WEEKS = 46;
     var ids = ['recruiters','currency','h1','h2','h3','h4','h5','h6','cost','fee','seat','cut'];
-    var DEFAULTS = { '£': {cost:25, fee:6000, seat:49}, '$': {cost:32, fee:8000, seat:65}, '€': {cost:29, fee:7000, seat:57}, 'zł ': {cost:120, fee:30000, seat:250} };
+    var DEFAULTS = { '£': {cost:25, fee:6000, seat:49}, '$': {cost:32, fee:8000, seat:65}, '€': {cost:29, fee:7000, seat:59}, 'zł ': {cost:120, fee:30000, seat:249} };
     function num(id) { var v = parseFloat($(id).value); return isFinite(v) && v > 0 ? v : 0; }
     function fmt(n, d) { return n.toLocaleString('en-GB', { maximumFractionDigits: d || 0, minimumFractionDigits: 0 }); }
     function money(n) { return $('currency').value + fmt(n); }
